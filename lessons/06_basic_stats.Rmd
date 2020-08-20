@@ -1,0 +1,200 @@
+---
+title: "Basic Statistics with R"
+output: github_document
+---
+
+# Introduction
+This lesson will cover calculating basic statistics with R, conducting statistical tests, and building simple linear models.  We will use the 2007 NLA data for the examples.
+
+## Get Data
+First step in any project will be getting the data read into R.  For this lesson we are using the 2007 National Lakes Assessment data, which ,luckily, we already have locally.  From our `nla_analysis.R` script we can re-run a bunch of that code.  I've copied over the important bits here.  Alternatively, you can just open up your `nla_analysis.R` and run everything in there.  
+
+```{r get_nla_data, message=FALSE, warning=FALSE}
+
+library(dplyr)
+library(readr)
+library(tidyr)
+
+nla_wq_all <- read_csv("nla2007_chemical_conditionestimates_20091123.csv")
+
+nla_wq <- nla_wq_all %>%
+  rename_all(tolower) %>% #making all names lower case beucase they are a mess!
+  mutate_if(is.character, tolower) %>%
+  filter(site_type == "prob_lake",
+         visit_no == 1) %>%
+  select(site_id, st, epa_reg, wsa_eco9, ptl, ntl, turb, chla, doc)
+```
+
+
+Next, lets get a bit more info from the NLA Sites and join that to our data.
+
+```{r}
+nla_sites <- read_csv("https://www.epa.gov/sites/production/files/2014-01/nla2007_sampledlakeinformation_20091113.csv")
+
+nla_sites <- nla_sites %>%
+  filter(VISIT_NO == 1) %>%
+  select(SITE_ID, STATE_NAME, CNTYNAME, LAKE_ORIGIN, RT_NLA) %>%
+  rename_all(tolower) %>% #making all names lower case because they are a mess!
+  mutate_if(is.character, tolower)
+
+nla <- left_join(nla_sites, nla_wq, by = "site_id") %>%
+  filter(!is.na(ntl),
+         !is.na(chla),
+         !is.na(ptl))
+```
+
+
+
+So now we have our dataset ready for analysis.
+
+## Analyze Data
+
+### Basic Stats
+First step in analyzing a dataset like this is going to be to dig through some basic statistics as well as some basic plots.  
+
+We can get a summary of the full data frame:
+
+```{r summary, message=FALSE, warning=FALSE}
+#Get a summary of the data frame
+summary(nla)
+```
+
+Or, we can pick and choose what stats we want.  For instance:
+
+```{r individual_stats, message=FALSE, warning=FALSE}
+#Stats for Total Nitrogen
+mean(nla$ntl)
+median(nla$ntl)
+min(nla$ntl)
+max(nla$ntl)
+sd(nla$ntl)
+IQR(nla$ntl)
+range(nla$ntl)
+```
+
+### Some quick useful viz
+
+While visualization isn't the point of this lesson, some things are useful to do at this stage of analysis.  In particular is looking at distributions and some basic scatterplots.
+
+We can look at histograms and density:
+
+```{r histogram_density, message=FALSE, warning=FALSE}
+#A single histogram using base
+hist(nla$ntl)
+#Log transform it
+hist(log1p(nla$ntl)) #log1p adds one to deal with zeros
+#Density plot
+plot(density(log1p(nla$ntl)))
+```
+
+
+And boxplots:
+
+```{r boxplots, message=FALSE, warning=FALSE}
+#Simple boxplots
+boxplot(nla$chla)
+boxplot(log1p(nla$chla))
+
+#Boxplots per group
+boxplot(log1p(nla$chla)~nla$epa_reg)
+```
+
+And scatterplots:
+
+```{r scatterplots, message=FALSE, warning=FALSE}
+#A single scatterplot
+plot(log1p(nla$ptl),log1p(nla$chla))
+```
+
+And we can do a matrix of scatterplots from a data frame, but we should be careful as non-numeric columns won't log transform and many columns will make for a very uninformative matrix!  So lets subset our dataframe and plot that.
+
+```{r}
+# Subset with dplyr::select
+nla_numeric_columns <- nla %>%
+  select(ntl, ptl, chla, turb)
+
+#A matrix of scatterplot
+plot(log1p(nla_numeric_columns))
+```
+
+
+## Some tests: t-test and ANOVA
+There are way more tests than we can show examples for.  For today we will show two very common and straightforward tests.  The t-test and an ANOVA.
+
+### t-test
+First we will look at the t-test to test and see if `lake_orign` shows a difference in `chla`.  In other words can we expect a difference in clarity due to whether a lake is man-made or natural.  This is a two-tailed test. There are two approaches for this 1) using the formula notation if your dataset is in a "long" format or 2) using two separate vectors if your dataset is in a "wide" format.
+
+```{r t-test, message=FALSE, warning=FALSE}
+#Long Format - original format for lake_origin and chla
+t.test(nla$chla ~ nla$lake_origin)
+
+#Wide Format - need to do some work to get there - tidyr is handy!
+wide_nla <- nla %>%
+  select(site_id, chla, lake_origin) %>%
+  spread(lake_origin, chla)
+names(wide_nla)<-c("site_id","man_made", "natural")
+t.test(wide_nla$man_made, wide_nla$natural)
+```
+
+Same results, two different ways to approach.  Take a look at the help (e.g. `?t.test`) for more details on other types of t-tests (e.g. paired, one-tailed, etc.)
+
+### ANOVA
+ANOVA can get involved quickly and I haven't done them since my last stats class, so I'm not the best to talk about these, but the very basics require fitting a model and wrapping that ins `aov` function.  In the [Getting More Help section](#getting-more-help) I provide a link that would be a good first start for you ANOVA junkies.  For todays lesson though, lets look at the simple case of a one-vay analysis of variance and check if reference class results in differences in our chlorophyll
+
+```{r simple_anova, message=FALSE, warning=FALSE}
+# A quick visual of this:
+boxplot(log1p(nla$chla)~nla$rt_nla)
+
+# One way analysis of variance
+nla_anova <- aov(log1p(chla)~rt_nla, data=nla)
+nla_anova #Terms
+summary(nla_anova) #The table
+anova(nla_anova) #The table with a bit more
+```
+
+
+## Correlations and Linear modeling
+The last bit of basic stats we will cover is going to be linear relationships.
+
+### Correlations
+Let's first take a look at correlations.  These can be done with `cor()`.
+
+```{r cor, message=FALSE, warning=FALSE}
+#For a pair
+cor(log1p(nla$ptl),log1p(nla$ntl))
+#For a correlation matrix
+cor(log1p(nla_numeric_columns))
+#Spearman Rank Correlations
+cor(log1p(nla_numeric_columns),method = "spearman")
+```
+
+You can also test for differences using:
+
+```{r cor_test, message=FALSE,warning=FALSE}
+cor.test(log1p(nla$ptl),log1p(nla$ntl))
+```
+
+### Linear models
+Basic linear models in R can be built with the `lm()` function.  If you aren't building standard least squares regressin models, (e.g. logistic) or aren't doing linear models then you will need to look elsewhere (e.g `glm()`, or `nls()`).  For today our focus is going to be on simple linear models.  Let's look at our ability to model chlorophyll, given the other variables we have.
+
+```{r}
+# The simplest case
+chla_tp <- lm(log1p(chla) ~ log1p(ptl), data=nla) #Creates the model
+summary(chla_tp) #Basic Summary
+names(chla_tp) #The bits
+chla_tp$coefficients #My preference
+coef(chla_tp) #Same thing, but from a function
+resid(chla_tp) # The residuals
+```
+
+We can also do multiple linear regression.
+
+```{r multiple, warning=FALSE, message=FALSE}
+chla_tp_tn_turb <- lm(log1p(chla) ~ log1p(ptl) + log1p(ntl) + log1p(turb), data = nla)
+summary(chla_tp_tn_turb)
+```
+
+There's a lot more we can do with linear models including dummy variables (character or factors will work), interactions, etc.  That's a bit more than we want to get into.  Again the link below is a good place to start for more info.
+
+## Getting More Help
+One nice site that covers basic stats in R is [Quick R: Basic Statistics](http://www.statmethods.net/stats/index.html).  There are others, but that is a good first stop.

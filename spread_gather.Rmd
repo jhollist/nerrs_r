@@ -1,0 +1,71 @@
+```{r setup, echo=FALSE, warning=FALSE, purl=FALSE, message=FALSE}
+library(knitr)
+options(repos="http://cran.rstudio.com/")
+opts_chunk$set(fig.path="figures/",R.options=list(max.print=100),message = FALSE,
+               warning = FALSE, error = FALSE)
+if(!require("ggplot2")){
+  install.packages("ggplot2")
+}
+if(!require("dplyr")){
+  install.packages("dplyr")
+}
+if(!require("tidyr")){
+  install.packages("tidyr")
+}
+library("ggplot2")
+library("dplyr")
+library("tidyr")
+library("readr")
+library("readxl")
+```
+
+### Spread and Gather with `tidyr`
+So far we have seen how to do some manipulation of the data, but we didn't really do too much with the structure of that data frame.  In some cases we might need to have data that are stored in rows, as columns or vice-versa.  Two of the function I use the most in `tidyr`, `spread()` and `gather()`, will accomplish this for us.  They are somewhat similar to pivot tables in spreadsheets and allow us combine columns together or spread them back out.  I'll admit it still sometimes feels a bit like magic.  So, abracadabra!
+
+Load up the library:
+
+```{r}
+library(tidyr)
+```
+
+#### gather
+
+Let's build an untidy data frame.  This is made up, but let's say we want to grab some monthly stats on some variable (e.g., average number of Boston Red Sox Hats, in thousands) per state. This time we will use the `tibble` function.  This is similar to `data.frame` but it makes good assumptions about the data and has some nice display options built in.  It comes from the `dplyr` package. 
+
+```{r}
+dirty_df <- tibble(state = c("CT","RI","MA"), jan = c(3.1,8.9,9.3), feb = c(1.0,4.2,8.6), march = c(2.9,3.1,12.5), april = c(4.4,5.6,14.2))
+dirty_df
+```
+
+What would be a tidy way to represent this same data set?
+
+They way I would do this is to gather the month columns into two new columns that represent month and number of visitors.
+
+```{r}
+tidy_df <- gather(dirty_df, month, vistors, jan:april) 
+tidy_df
+```
+
+#### spread
+
+Here's another possibility from a water quality example.  We have data collected at multiple sampling locations and we are measuring multiple water quality parameters.
+
+```{r}
+long_df <- data_frame(station = rep(c("A","A","B","B"),3), 
+                      month = c(rep("june",4),rep("july",4),rep("aug", 4)), 
+                      parameter = rep(c("chla","temp"), 6),
+                      value = c(18,23,3,22,19.5,24,3.5,22.25,32,26.7,4.2,23))
+long_df
+```
+
+We might want to have this in a wide as opposed to long format.  That can be accomplished with `spread()`
+
+```{r}
+wide_df <- spread(long_df,parameter,value)
+wide_df
+```
+
+While these two simple examples showcase the general ideas, deciding on a given tidy structure for your data will depend on many things and the result will differ based on your task (i.e. data entry, visualization, modeling, etc.).  A couple of nice reads about this are:
+
+- [Best Pracitces for Using Google Sheets in Your Data Project](https://matthewlincoln.net/2018/03/26/best-practices-for-using-google-sheets-in-your-data-project.html)
+- And again, R4DS [Tidy Data Chapter](http://r4ds.had.co.nz/tidy.html)
