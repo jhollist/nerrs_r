@@ -22,40 +22,7 @@ for(i in pkgs){
     install.packages(i)
   }
 }
-```
-
-```
-## package 'plotly' successfully unpacked and MD5 sums checked
-## 
-## The downloaded binary packages are in
-## 	C:\Users\JHollist\AppData\Local\Temp\RtmpoleMjV\downloaded_packages
-```
-
-```r
 x<-lapply(pkgs, library, character.only = TRUE)
-```
-
-```
-## 
-## Attaching package: 'plotly'
-```
-
-```
-## The following object is masked from 'package:ggplot2':
-## 
-##     last_plot
-```
-
-```
-## The following object is masked from 'package:stats':
-## 
-##     filter
-```
-
-```
-## The following object is masked from 'package:graphics':
-## 
-##     layout
 ```
 
 The chunk you use to load pacakges will usually be simpler and look something like the following:   
@@ -93,25 +60,7 @@ nla_wq <- nla_wq_all %>%
 datatable(nla_wq)
 ```
 
-```
-## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
-```
-
-```
-## Warning in normalizePath(path.expand(path), winslash, mustWork):
-## path[1]="webshot21084b045786.png": The system cannot find the file
-## specified
-```
-
-```
-## Warning in file(con, "rb"): cannot open file 'C:
-## \Users\JHollist\AppData\Local\Temp\RtmpoleMjV\file21081c7c47\webshot21084b045786.png':
-## No such file or directory
-```
-
-```
-## Error in file(con, "rb"): cannot open the connection
-```
+![plot of chunk tidy](figure/tidy-1.png)
 
 ## Visualize Data
 
@@ -134,8 +83,6 @@ nla_tn_tp_chla_gg <- nla_wq %>%
 ggplotly(nla_tn_tp_chla_gg)
 ```
 
-```
-## Error in file(con, "rb"): cannot open the connection
-```
+![plot of chunk plot_it](figure/plot_it-1.png)
 
 
