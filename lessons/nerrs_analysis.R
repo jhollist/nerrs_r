@@ -91,9 +91,21 @@ ne_nerrs_wq
 ne_nerrs_wq_gg <- ne_nerrs_wq %>%
   ggplot(aes(x=date,y=measurement)) +
   geom_point(aes(color=reserve)) +
-  facet_grid(param ~ reserve, scales = "free_y") +
-  theme_classic() 
-#add labels for reserve and axes, better colors
+  facet_grid(param ~ reserve, scales = "free_y", 
+             labeller = labeller(param = c(do_pct = "%DO", ph = "pH", 
+                                           sal = "Salinity", 
+                                           temp = "Temperature", 
+                                           turb = "Turbidity"),
+                                 reserve = c(grb = "Great Bay", 
+                                             nar = "Narr. Bay",
+                                             wel = "Wells",
+                                             wqb = "Waquoit Bay"))) +
+  theme_classic() +
+  theme(legend.position = "none") +
+  labs(x = "Date", y = "", 
+       title = "Comparison of basic water quality across northeastern NERRS") +
+  scale_color_manual(values = c("darkred","darkblue","grey50","black"))
+
   
 ggplotly(ne_nerrs_wq_gg)
 
