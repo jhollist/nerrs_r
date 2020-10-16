@@ -44,7 +44,7 @@ nla_secchi_cln <- nla_secchi %>%
 #Join the two together based on SITE_ID and the finally filter out NA's
 nla <- left_join(x = nla_wq_cln, y = nla_secchi_cln, by = "SITE_ID") %>%
   filter(complete.cases(NTL,PTL,TURB,CHLA,SECMEAN))
-tbl_df(nla)
+as_tibble(nla)
 ```
 
 ```
