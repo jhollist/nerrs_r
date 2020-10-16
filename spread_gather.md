@@ -63,7 +63,7 @@ Here's another possibility from a water quality example.  We have data collected
 
 
 ```r
-long_df <- data_frame(station = rep(c("A","A","B","B"),3), 
+long_df <- tibble(station = rep(c("A","A","B","B"),3), 
                       month = c(rep("june",4),rep("july",4),rep("aug", 4)), 
                       parameter = rep(c("chla","temp"), 6),
                       value = c(18,23,3,22,19.5,24,3.5,22.25,32,26.7,4.2,23))
