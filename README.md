@@ -15,29 +15,31 @@ The materials will cover:
 # Class Schedule and Links to Materials
 We will meet every Monday from 2pm to 3pm via Teams ([link to Teams meeting](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2I1N2U4OWYtMWM1MC00MjRhLWFlNWQtMjQzMzc1MmEyOTI4%40thread.v2/0?context=%7b%22Tid%22%3a%2288b378b3-6748-4867-acf9-76aacbeca6a7%22%2c%22Oid%22%3a%2290904e2a-aa82-465e-9922-afce4bc6d524%22%7d)) 
 
+***NOTE TO JEFF:  START THE RECORDING! ***
 
 |Class                      |Topic                                             | 
 |---------------------------|--------------------------------------------------| 
 |Class 1 (2020-10-05):      |                                                  |
 |                           |Introductions, Course Details, and Software troubleshooting|
-|Class 2 (2020-10-12):      |                                                  |
+|Class 2 (2020-10-19):      |                                                  |
 |                           |[RStudio and The Punchline](lessons/01_rstudio.md)|
-|Class 3 (2020-10-19):      |                                                  |
+|Class 3 (2020-10-26):      |                                                  |
 |                           |[R Basics: Functions, Syntax, and Packages](lessons/02_r_basics.md)|
-|Class 4 (2020-10-26):      |                                                  |
+|Class 4 (2020-11-02):      |                                                  |
 |                           |[R Basics: Getting Help](lessons/02_r_basics.md#getting-help)|
 |                           |[Tidy Data: Part 1](lessons/03_tidy_data_in_r_1.md)|
-|Class 5 (2020-11-02):      |                                                  |
+|Class 5 (2020-11-09):      |                                                  |
 |                           |[Finish Up Tidy Data: Part 1](lessons/03_tidy_data_in_r_1.md)|
 |                           |[Tidy Data: Part 2](lessons/03_tidy_data_in_r_2.md)|
-|Class 6 (2020-11-09):      |                                                  |
+|Class 6 (2020-11-16):      |                                                  |
 |                           |[Finish up Tidy Data: Part 2](lessons/03_tidy_data_in_r_2.md#filter)|
-|Class 7 (2020-11-16):      |                                                  |
+|Class 7 (2020-11-23):      |                                                  |
 |                           |[Data Viz: Part 1](lessons/04_data_viz_with_ggplot2.md)|
-|Class 8 (2020-11-23):      |                                                  |
+|Class 8 (2020-11-30):      |                                                  |
 |                           |[Data Viz: Part 2](lessons/04_data_viz_with_ggplot2.md)|
 |                           |[RR and Rmarkdown](lessons/05_rr_and_rmarkdown.md)|
-|Class 9 (2020-11-30):      |[Basic Stats](lessons/06_basic_stats.md)          |
+|Class 9 (2020-12-07):      |                                                  |
+|                           |[Basic Stats](lessons/06_basic_stats.md)          |
 
 ## EPA Disclaimer
 The United States Environmental Protection Agency (EPA) GitHub project code is provided on an "as is" basis and the user assumes responsibility for its use. EPA has relinquished control of the information and no longer has responsibility to protect the integrity , confidentiality, or availability of the information. Any reference to specific commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation or favoring by EPA. The EPA seal and logo shall not be used in any manner to imply endorsement of any commercial product or activity by EPA or the United States Government.

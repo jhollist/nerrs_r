@@ -60,16 +60,17 @@ Once you have code in your R Script or have an opened an R Script, that code sti
 
 Now that we have RStudio opened and know are way around a bit, we are going to jump straight to the end and see what a complete R script looks like, run the code and be amazed!  This is kind of like telling a joke by starting with the punch line first!
 
-1. Follow the link to [The Punch Line](punchline.md) and we will work through that together to get more familar with R Studio, R Scripts, and R. 
+1. Follow the link to [The Punch Line](punchline.md) and we will work through that together to get more familiar with R Studio, R Scripts, and R. 
 
 ## Homework
 
-To practice what we have seen today we will be opening and running code inside of a new script.  Jeff will email all of you a script.  When you receive this and before the next class you should:
+To practice what we have seen today we will be opening and running code inside of a new script.  The script is available on the class repository at [homework/homework_01.R](https://github.com/jhollist/nerrs_r/blob/master/homework/homework_01.R) 
 
 1. Open RStudio
-2. Creat a new RStudio project and call it "homework_1".
-3. Save the R Script you received be email inside of this project.
+2. Create a new RStudio project and call it "homework_1".
+3. Save the R Script from [homework/homework_01.R](https://github.com/jhollist/nerrs_r/blob/master/homework/homework_01.R) to the project you just created.
 4. Open the R Script.
 5. Run it.
+6. Be prepared to answer: What did the script do?
 
-If you have any questions or problems with the assignment, Jeff is available via Skype for help.  Just send an email and Jeff will reply with a calendar invite.
+If you have any questions or problems with the assignment, Jeff is available via Teams for help.  Just send an email and Jeff will reply with a calendar invite.
