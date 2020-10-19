@@ -217,7 +217,7 @@ As I mentioned earlier, there are TOO many resources to mention and everyone has
 
 - [R For Data Science](http://r4ds.had.co.nz/): Another book by Hadley and Garrett Grolemund.  First reference I suggest for new (and experienced) R Learners, especially for all things Tidy.
 - [Advanced R](http://adv-r.had.co.nz/): Web home of Hadley Wickham's new book.  Gets into more advanced topics, but also covers the basics in a great way.
-- [swirl](https://swirlstats.com/): Self-paced lessons to learn R, in R...
+- [Swirl](https://swirlstats.com/): Self-paced lessons to learn R, in R...
 - [RStudio Beginners](https://education.rstudio.com/learn/beginner/): There are many great resources from RStudio.  This is the beginners link, but look around for more.
 - [R For Cats](http://rforcats.net/): Basic introduction site, meant to be a gentle and light-hearted introduction.
 - [CRAN Cheatsheets](http://cran.r-project.org/doc/contrib/Short-refcard.pdf): A good cheat sheet from the official source
@@ -226,13 +226,13 @@ As I mentioned earlier, there are TOO many resources to mention and everyone has
 
 ## Homework 2.1
 
-Start up the class project that we created last class, `neer_intro_r` and Open up the `nla_analysis.R` file.  
+Start up the class project that we created last class, `neer_intro_r` and Open up the `nerrs_analysis.R` file.  
 
 Take a look at this file and find the following:
 
 1. Find the `read_csv()` function.  What lines is it on?  What is the name of the argument in this function and what is the value that we have assigned to that argument?
 2. Now find the lines on which you think we install packages and load up our packages for your use.  The installation is fancier than it needs to be, but loading the packages is pretty standard.  In your own words, what do you think each of these lines is telling R to do.
-3. Add a line of code after line 24 (or so) to install the package `lubridate`.  Add a line after line 33 (or so) to load `lubridate`.
+3. Add a line of code after line 25 (or so) to install the package `lubridate`.  Add a line after line 36 (or so) to load `lubridate`.
 5. Bring up the package level help for the `lubridate` package.  What does this package do?
 
-Be prepared to answer these questions when we meet next time.  If you run into problems, I am available via Skype to help out.
+Be prepared to answer these questions when we meet next time.  If you run into problems, I am available via Teams to help out.
