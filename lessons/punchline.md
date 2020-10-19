@@ -22,7 +22,7 @@ Then select "New Project"
 The select "Create Project."  Name this project "nerrs_intro_r". At this point you should now have a new, empty project.  We need to download the R Script and some data that we will be using for our workshop.  Right click on each of the the links below and select "Save Link As".  In the window that opens up, browse to the location of the project and save these files to the project folder.  Chrome seems to want to call the data file, a ".txt" file.  It shouldn't do that, but it does.  Make sure that you change the ".txt" to ".csv" when you save the file. 
 
 - [NE NERRS R Analysis](https://raw.githubusercontent.com/jhollist/nerrs_r/master/lessons/nerrs_analysis.R)
-- [2020 Summer NE NERRS Water Quality Data](https://github.com/jhollist/nerrs_r/raw/master/data/ne_nerrs_wq_2020.csv)
+- <a href="https://github.com/jhollist/nerrs_r/raw/master/data/ne_nerrs_wq_2020.csv", type="text/csv">2020 Summer NE NERRS Water Quality Data</a>
 
 ## Run the script 
 
