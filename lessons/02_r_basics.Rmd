@@ -26,8 +26,18 @@ In this lesson we are going to go over the very basics of R, cover some basic te
 - [Getting help](#getting-help)
 
 ## Lesson Exercises:
-- [Exercise 2.1](#exercise-21)
+- [Homework 2.1](#homework-21)
 
+
+## Exercise 2.1
+Let's start off by making sure we are in the correct project and create a script to hold the examples we will work through.  
+
+1. Open your `nerrs_intro_r` project.  
+2. Create a new R script.
+3. Save the (currently empty) R script as `r_basics.R`
+4. Look at the file tab.  You should be in a `nerrs_intro_r` folder and there should now be a `r_basics.R` file there.
+5. When this is finished, just say "done" in the Teams chat. 
+6. As I am showing examples, you can follow along, type the same functions and code in your script, and run the code to see what happens.
 
 ## Functions and basic syntax 
 
@@ -226,7 +236,7 @@ As I mentioned earlier, there are TOO many resources to mention and everyone has
 
 ## Homework 2.1
 
-Start up the class project that we created last class, `neer_intro_r` and Open up the `nerrs_analysis.R` file.  
+Start up the class project that we created last class, `nerrs_intro_r` and open up the `nerrs_analysis.R` file.  
 
 Take a look at this file and find the following:
 
@@ -235,4 +245,4 @@ Take a look at this file and find the following:
 3. Add a line of code after line 25 (or so) to install the package `lubridate`.  Add a line after line 36 (or so) to load `lubridate`.
 5. Bring up the package level help for the `lubridate` package.  What does this package do?
 
-Be prepared to answer these questions when we meet next time.  If you run into problems, I am available via Teams to help out.
+Be prepared to answer these questions when we meet next time.  If you run into problems, I am available via Teams to help out.  Just send me an email.

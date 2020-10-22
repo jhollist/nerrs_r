@@ -12,8 +12,18 @@ In this lesson we are going to go over the very basics of R, cover some basic te
 - [Getting help](#getting-help)
 
 ## Lesson Exercises:
-- [Exercise 2.1](#exercise-21)
+- [Homework 2.1](#homework-21)
 
+
+## Exercise 2.1
+Let's start off by making sure we are in the correct project and create a script to hold the examples we will work through.  
+
+1. Open your `nerrs_intro_r` project.  
+2. Create a new R script.
+3. Save the (currently empty) R script as `r_basics.R`
+4. Look at the file tab.  You should be in a `nerrs_intro_r` folder and there should now be a `r_basics.R` file there.
+5. When this is finished, just say "done" in the Teams chat. 
+6. As I am showing examples, you can follow along, type the same functions and code in your script, and run the code to see what happens.
 
 ## Functions and basic syntax 
 
@@ -46,16 +56,16 @@ rnorm(100, mean = 10, sd = 2)
 ```
 
 ```
-##   [1] 11.315845 11.062818  8.464825  8.576362 11.583358  9.236763 10.056277 10.744148 10.000303 11.069593  8.752472
-##  [12]  7.940293 11.922096 11.440898 10.340701 11.102221  9.536233 13.723414 10.929395 11.471070  8.593829 11.509775
-##  [23]  8.648211 11.541874 13.382538  7.161517 10.761951  7.060869  9.549533 11.380481  8.835119 10.070591  9.983598
-##  [34] 10.658547  7.647631 11.079074  9.310840  9.587659  8.681038  9.949568  9.401605  8.724144  8.155992 13.021751
-##  [45]  5.025744  4.972349  9.510305 11.429666 11.912050  9.135956  9.198345 13.649600  9.462684 14.460510  9.073297
-##  [56] 10.354892 10.105723  7.284440 12.764604 10.277136  7.564539 11.601303  9.092696 13.128401  7.682976 12.103512
-##  [67] 12.175427 10.029292  8.547701  7.512682 13.112948 10.043392  9.130178 10.937787  8.109875  8.310955  5.703185
-##  [78] 13.393987 12.834079  8.755032 12.001582  7.688285  9.641426  6.901975  7.740409 12.345903  6.770730 14.773357
-##  [89]  8.994123  5.697461  9.871444  6.885285 10.981870  9.370408  8.200592 11.561966  8.946647 11.200972  9.650116
-## [100]  9.144005
+##   [1] 11.774941  9.755222 10.644634 13.176252  9.006489 11.554359 14.173181 11.578140 11.707258 11.998450
+##  [11] 10.255856 11.364268 10.924988 12.997515 10.051627  9.953177 12.735151  9.763948 10.157999  9.695424
+##  [21]  8.490866 11.361951 12.031373  7.430028 12.042021 10.720755  8.385387  8.315540 10.620627 11.086578
+##  [31] 13.257756 10.583243  7.677336  7.891017 13.054420  7.183739  9.952981  7.051380  9.410241  6.652752
+##  [41]  8.776118  5.718915  7.618740  7.239075 10.837383 12.975702  7.287595 11.130890 10.445671 10.012267
+##  [51] 11.114204  9.796478  8.138881 10.355476  9.157933  9.435478 13.118380 11.271895  7.696851  6.404370
+##  [61]  8.802922  7.736816  8.628646 12.454230  8.655269  9.569524 11.054948 11.867015  8.564536 11.516404
+##  [71] 10.651067 11.976049  9.519118 10.608099 11.763441 12.931088 10.415705 12.781116 11.580237 12.204982
+##  [81] 11.782649 10.098290 13.736950  8.703808  7.226944 11.236686 10.752244 10.703843 11.711457  4.868540
+##  [91] 10.466506  9.227441  8.199443 13.286191 11.197270  9.406691 10.876606  8.676810 10.686328 12.325854
 ```
 
 ```r
@@ -64,7 +74,7 @@ mean(rnorm(100))
 ```
 
 ```
-## [1] -0.03723542
+## [1] -0.07329567
 ```
 
 ```r
@@ -73,7 +83,7 @@ sum(rnorm(100))
 ```
 
 ```
-## [1] -3.429004
+## [1] -9.689879
 ```
 
 ### A few side notes 
@@ -95,7 +105,7 @@ The base install of R is quite powerful, but you will soon have a need or desire
 
 ### CRAN
 
-One of the reasons for R's popularity is CRAN, [The Comprehensive R Archive Network](http://cran.r-project.org/).  This is where you download R and also where most will gain access to packages (there are other places, but that is for later).  Not much else to say about this now other than to be aware of it.  As of 2020-10-19, there are 16397 packages on CRAN! 
+One of the reasons for R's popularity is CRAN, [The Comprehensive R Archive Network](http://cran.r-project.org/).  This is where you download R and also where most will gain access to packages (there are other places, but that is for later).  Not much else to say about this now other than to be aware of it.  As of 2020-10-22, there are 16415 packages on CRAN! 
 
 ### Installing packages
 
@@ -134,7 +144,7 @@ dplyr::mutate
 ## {
 ##     UseMethod("mutate")
 ## }
-## <bytecode: 0x000002352417da78>
+## <bytecode: 0x00000188b3038298>
 ## <environment: namespace:dplyr>
 ```
 
@@ -388,7 +398,7 @@ As I mentioned earlier, there are TOO many resources to mention and everyone has
 
 ## Homework 2.1
 
-Start up the class project that we created last class, `neer_intro_r` and Open up the `nerrs_analysis.R` file.  
+Start up the class project that we created last class, `nerrs_intro_r` and open up the `nerrs_analysis.R` file.  
 
 Take a look at this file and find the following:
 
@@ -397,4 +407,4 @@ Take a look at this file and find the following:
 3. Add a line of code after line 25 (or so) to install the package `lubridate`.  Add a line after line 36 (or so) to load `lubridate`.
 5. Bring up the package level help for the `lubridate` package.  What does this package do?
 
-Be prepared to answer these questions when we meet next time.  If you run into problems, I am available via Teams to help out.
+Be prepared to answer these questions when we meet next time.  If you run into problems, I am available via Teams to help out.  Just send me an email.
