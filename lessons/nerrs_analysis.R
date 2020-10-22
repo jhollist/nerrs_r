@@ -43,11 +43,9 @@ library(tidyr)
 ne_nerrs_wq <- read_csv("ne_nerrs_wq_2020.csv", guess_max = 600000)
 
 ################################################################################
-# Manipulate Data: Let's tidy up this dataset by turning all column names to
-# lower case (Jeff likes it that way), convert all text in the dataset to lower
-# case (again Jeff likes it like that way and it is kind of a hot mess
-# otherwise), filter out just the probability samples and the first visits, and
-# select a subset of columns.
+# Manipulate Data: Let's tidy up this dataset by dropping all observations with
+# a non-zero flag, selecting out our desired columns, and summarizing the data
+# for each reserve.
 
 ne_nerrs_wq <- ne_nerrs_wq %>%
   select(site, datetimestamp:f_do_pct, ph:f_turb) %>%
