@@ -17,6 +17,7 @@ library("dplyr")
 library("tidyr")
 library("readr")
 library("readxl")
+library("palmerpenguins")
 ```
 
 # Tidy Data in R
@@ -38,7 +39,26 @@ Simply put, a data structure is a way for programming languages to handle storin
 
 *Another note:* Data types (e.g. numeric, character, logcial, etc.) are important to know about too, but details are more than we have time for.  Take a look at the chapter on vectors in R for Data Science, in particular [Section 20.3](https://r4ds.had.co.nz/vectors.html#important-types-of-atomic-vector).  
 
-*And, yet another note:* Computers aren't very good at math.  Or at least they don't deal with floating point data they way many would think.  First, any value that is not an integer, is considered a "Double."  These are approximations, so if we are looking to compare to doubles, we might not always get the result we are expecting.   Again, R4DS is a great read on this: [Section on Numeric Vectors](https://r4ds.had.co.nz/vectors.html#numeric).  But also see [this take from Revolution Analytics](https://blog.revolutionanalytics.com/2009/11/floatingpoint-errors-explained.html) and [techradar](https://www.techradar.com/news/computing/why-computers-suck-at-maths-644771/2).
+*And, yet another note:* Computers aren't very good at math.  Or at least they don't deal with floating point data they way many would think.  First, any value that is not an integer, is considered a "Double."  These are approximations, so if we are looking to compare to doubles, we might not always get the result we are expecting.   Again, R4DS is a great read on this: [Section on Numeric Vectors](https://r4ds.had.co.nz/vectors.html#numeric).  But also see [this take from Revolution Analytics](https://blog.revolutionanalytics.com/2009/11/floatingpoint-errors-explained.html) and [techradar](https://www.techradar.com/news/computing/why-computers-suck-at-maths-644771/2). 
+
+<details>
+<summary>Does` 1.0 == 1.001`?</summary>
+  
+```{r}
+1.0 == 1.001
+```
+
+</details>  
+
+<details>
+<summary>Does` 1.0 == 1.0000000000000001`?</summary>
+  
+```{r}
+1.0 == 1.0000000000000001
+```
+
+</details>     
+  
 
 *Last note, I promise:* Your elementary education was wrong. In other words rounding 2.5 is 2 and not 3, but rounding 3.5 is 4.  There are actually good reasons for this.  Read up on the IEEE 754 standard [rules on rounding](https://en.wikipedia.org/wiki/IEEE_754#Rounding_rules).  
 

@@ -56,16 +56,18 @@ rnorm(100, mean = 10, sd = 2)
 ```
 
 ```
-##   [1] 11.774941  9.755222 10.644634 13.176252  9.006489 11.554359 14.173181 11.578140 11.707258 11.998450
-##  [11] 10.255856 11.364268 10.924988 12.997515 10.051627  9.953177 12.735151  9.763948 10.157999  9.695424
-##  [21]  8.490866 11.361951 12.031373  7.430028 12.042021 10.720755  8.385387  8.315540 10.620627 11.086578
-##  [31] 13.257756 10.583243  7.677336  7.891017 13.054420  7.183739  9.952981  7.051380  9.410241  6.652752
-##  [41]  8.776118  5.718915  7.618740  7.239075 10.837383 12.975702  7.287595 11.130890 10.445671 10.012267
-##  [51] 11.114204  9.796478  8.138881 10.355476  9.157933  9.435478 13.118380 11.271895  7.696851  6.404370
-##  [61]  8.802922  7.736816  8.628646 12.454230  8.655269  9.569524 11.054948 11.867015  8.564536 11.516404
-##  [71] 10.651067 11.976049  9.519118 10.608099 11.763441 12.931088 10.415705 12.781116 11.580237 12.204982
-##  [81] 11.782649 10.098290 13.736950  8.703808  7.226944 11.236686 10.752244 10.703843 11.711457  4.868540
-##  [91] 10.466506  9.227441  8.199443 13.286191 11.197270  9.406691 10.876606  8.676810 10.686328 12.325854
+##   [1] 11.815716 11.709837  4.988357 12.332967 12.079867  9.900374  9.272525  9.786860 10.918689
+##  [10]  8.983126  8.892675  7.182900 11.962403  6.429783  8.535214 11.882664 10.999071 14.485866
+##  [19]  9.163759  8.263716  8.387724  9.230968  6.621156  9.292243 10.075009  9.911410  8.719817
+##  [28] 12.382225 10.451251  9.329520  7.410795  8.218058 10.831895  7.653088  9.491875 11.123941
+##  [37]  7.440490  5.084869 10.846158  9.328857 11.438849 10.042399 10.537285 11.610937  8.858129
+##  [46]  7.467185  8.197163 11.738743  9.816212 10.362274 11.083523  9.893658  5.962408 12.173226
+##  [55]  9.990598  8.765046  9.182835  7.026275  9.245872  8.516878  8.857114  9.490912  9.881666
+##  [64]  6.396466 12.591867 14.049789 11.150432  7.903370 10.988963 11.223167 12.962505  9.205076
+##  [73]  7.754639  9.968720  9.304937  9.572267  8.322599  9.011237 10.157370  7.498279 11.200083
+##  [82] 10.308756 10.636605 11.570877 10.035257 13.623371  8.693890  9.049948 10.886803  8.015401
+##  [91]  9.194625 10.058151  8.356317  9.923997  8.668153 10.578812 10.345956 10.815828 11.504936
+## [100] 10.113905
 ```
 
 ```r
@@ -74,7 +76,7 @@ mean(rnorm(100))
 ```
 
 ```
-## [1] -0.07329567
+## [1] -0.1422108
 ```
 
 ```r
@@ -83,7 +85,7 @@ sum(rnorm(100))
 ```
 
 ```
-## [1] -9.689879
+## [1] -17.58443
 ```
 
 ### A few side notes 
@@ -105,7 +107,7 @@ The base install of R is quite powerful, but you will soon have a need or desire
 
 ### CRAN
 
-One of the reasons for R's popularity is CRAN, [The Comprehensive R Archive Network](http://cran.r-project.org/).  This is where you download R and also where most will gain access to packages (there are other places, but that is for later).  Not much else to say about this now other than to be aware of it.  As of 2020-10-22, there are 16415 packages on CRAN! 
+One of the reasons for R's popularity is CRAN, [The Comprehensive R Archive Network](http://cran.r-project.org/).  This is where you download R and also where most will gain access to packages (there are other places, but that is for later).  Not much else to say about this now other than to be aware of it.  As of 2020-10-30, there are 16424 packages on CRAN! 
 
 ### Installing packages
 
@@ -144,7 +146,7 @@ dplyr::mutate
 ## {
 ##     UseMethod("mutate")
 ## }
-## <bytecode: 0x00000188b3038298>
+## <bytecode: 0x0000020b1d286110>
 ## <environment: namespace:dplyr>
 ```
 
@@ -407,4 +409,4 @@ Take a look at this file and find the following:
 3. Add a line of code after line 25 (or so) to install the package `lubridate`.  Add a line after line 36 (or so) to load `lubridate`.
 5. Bring up the package level help for the `lubridate` package.  What does this package do?
 
-Be prepared to answer these questions when we meet next time.  If you run into problems, I am available via Teams to help out.  Just send me an email.
+Be prepared to answer these questions when we meet next time.  If you run into problems, I am available via Teams to help out.  Just send me an email to set it up.

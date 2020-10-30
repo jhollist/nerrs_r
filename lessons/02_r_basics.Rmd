@@ -245,4 +245,4 @@ Take a look at this file and find the following:
 3. Add a line of code after line 25 (or so) to install the package `lubridate`.  Add a line after line 36 (or so) to load `lubridate`.
 5. Bring up the package level help for the `lubridate` package.  What does this package do?
 
-Be prepared to answer these questions when we meet next time.  If you run into problems, I am available via Teams to help out.  Just send me an email.
+Be prepared to answer these questions when we meet next time.  If you run into problems, I am available via Teams to help out.  Just send me an email to set it up.

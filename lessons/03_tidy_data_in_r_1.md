@@ -19,7 +19,36 @@ Simply put, a data structure is a way for programming languages to handle storin
 
 *Another note:* Data types (e.g. numeric, character, logcial, etc.) are important to know about too, but details are more than we have time for.  Take a look at the chapter on vectors in R for Data Science, in particular [Section 20.3](https://r4ds.had.co.nz/vectors.html#important-types-of-atomic-vector).  
 
-*And, yet another note:* Computers aren't very good at math.  Or at least they don't deal with floating point data they way many would think.  First, any value that is not an integer, is considered a "Double."  These are approximations, so if we are looking to compare to doubles, we might not always get the result we are expecting.   Again, R4DS is a great read on this: [Section on Numeric Vectors](https://r4ds.had.co.nz/vectors.html#numeric).  But also see [this take from Revolution Analytics](https://blog.revolutionanalytics.com/2009/11/floatingpoint-errors-explained.html) and [techradar](https://www.techradar.com/news/computing/why-computers-suck-at-maths-644771/2).
+*And, yet another note:* Computers aren't very good at math.  Or at least they don't deal with floating point data they way many would think.  First, any value that is not an integer, is considered a "Double."  These are approximations, so if we are looking to compare to doubles, we might not always get the result we are expecting.   Again, R4DS is a great read on this: [Section on Numeric Vectors](https://r4ds.had.co.nz/vectors.html#numeric).  But also see [this take from Revolution Analytics](https://blog.revolutionanalytics.com/2009/11/floatingpoint-errors-explained.html) and [techradar](https://www.techradar.com/news/computing/why-computers-suck-at-maths-644771/2). 
+
+<details>
+<summary>Does` 1.0 == 1.001`?</summary>
+  
+
+```r
+1.0 == 1.001
+```
+
+```
+## [1] FALSE
+```
+
+</details>  
+
+<details>
+<summary>Does` 1.0 == 1.0000000000000001`?</summary>
+  
+
+```r
+1.0 == 1.0000000000000001
+```
+
+```
+## [1] TRUE
+```
+
+</details>     
+  
 
 *Last note, I promise:* Your elementary education was wrong. In other words rounding 2.5 is 2 and not 3, but rounding 3.5 is 4.  There are actually good reasons for this.  Read up on the IEEE 754 standard [rules on rounding](https://en.wikipedia.org/wiki/IEEE_754#Rounding_rules).  
 
@@ -104,26 +133,26 @@ nla_wq_all
 
 ```
 ## # A tibble: 1,252 x 51
-##    SITE_ID VISIT_NO SITE_TYPE LAKE_SAMP TNT   LAT_DD LON_DD ST    EPA_REG AREA_CAT7 NESLAKE STRATUM
-##    <chr>      <dbl> <chr>     <chr>     <chr>  <dbl>  <dbl> <chr> <chr>   <chr>     <chr>   <chr>  
-##  1 NLA066~        1 PROB_Lake Target_S~ Targ~   49.0 -114.  MT    Region~ (50,100]  <NA>    NLALake
-##  2 NLA066~        1 PROB_Lake Target_S~ Targ~   33.0  -80.0 SC    Region~ (10,20]   <NA>    NLALake
-##  3 NLA066~        2 PROB_Lake Target_S~ Targ~   33.0  -80.0 SC    Region~ (10,20]   <NA>    NLALake
-##  4 NLA066~        1 PROB_Lake Target_S~ Targ~   28.0  -97.9 TX    Region~ (4,10]    <NA>    NLALake
-##  5 NLA066~        2 PROB_Lake Target_S~ Targ~   28.0  -97.9 TX    Region~ (4,10]    <NA>    NLALake
-##  6 NLA066~        1 PROB_Lake Target_S~ Targ~   37.4 -108.  CO    Region~ (50,100]  <NA>    NLALake
-##  7 NLA066~        2 PROB_Lake Target_S~ Targ~   37.4 -108.  CO    Region~ (50,100]  <NA>    NLALake
-##  8 NLA066~        1 PROB_Lake Target_S~ Targ~   43.9 -115.  ID    Region~ (10,20]   <NA>    NLALake
-##  9 NLA066~        2 PROB_Lake Target_S~ Targ~   43.9 -115.  ID    Region~ (10,20]   <NA>    NLALake
-## 10 NLA066~        1 PROB_Lake Target_S~ Targ~   41.7  -73.1 CT    Region~ (50,100]  <NA>    NLALake
-## # ... with 1,242 more rows, and 39 more variables: PANEL <chr>, DSGN_CAT <chr>, MDCATY <dbl>,
-## #   WGT <dbl>, WGT_NLA <dbl>, ADJWGT_CAT <chr>, URBAN <chr>, WSA_ECO3 <chr>, WSA_ECO9 <chr>,
-## #   ECO_LEV_3 <dbl>, NUT_REG <chr>, NUTREG_NAME <chr>, ECO_NUTA <chr>, LAKE_ORIGIN <chr>,
-## #   ECO3_X_ORIGIN <chr>, REF_CLUSTER <chr>, RT_NLA <chr>, HUC_2 <dbl>, HUC_8 <dbl>, FLAG_INFO <chr>,
-## #   COMMENT_INFO <chr>, SAMPLED <chr>, SAMPLED_CHEM <chr>, INDXSAMP_CHEM <chr>, PTL <dbl>,
-## #   NTL <dbl>, TURB <dbl>, ANC <dbl>, DOC <dbl>, COND <dbl>, SAMPLED_CHLA <chr>,
-## #   INDXSAMP_CHLA <chr>, CHLA <dbl>, PTL_COND <chr>, NTL_COND <chr>, CHLA_COND <chr>,
-## #   TURB_COND <chr>, ANC_COND <chr>, SALINITY_COND <chr>
+##    SITE_ID VISIT_NO SITE_TYPE LAKE_SAMP TNT   LAT_DD LON_DD ST    EPA_REG AREA_CAT7 NESLAKE
+##    <chr>      <dbl> <chr>     <chr>     <chr>  <dbl>  <dbl> <chr> <chr>   <chr>     <chr>  
+##  1 NLA066~        1 PROB_Lake Target_S~ Targ~   49.0 -114.  MT    Region~ (50,100]  <NA>   
+##  2 NLA066~        1 PROB_Lake Target_S~ Targ~   33.0  -80.0 SC    Region~ (10,20]   <NA>   
+##  3 NLA066~        2 PROB_Lake Target_S~ Targ~   33.0  -80.0 SC    Region~ (10,20]   <NA>   
+##  4 NLA066~        1 PROB_Lake Target_S~ Targ~   28.0  -97.9 TX    Region~ (4,10]    <NA>   
+##  5 NLA066~        2 PROB_Lake Target_S~ Targ~   28.0  -97.9 TX    Region~ (4,10]    <NA>   
+##  6 NLA066~        1 PROB_Lake Target_S~ Targ~   37.4 -108.  CO    Region~ (50,100]  <NA>   
+##  7 NLA066~        2 PROB_Lake Target_S~ Targ~   37.4 -108.  CO    Region~ (50,100]  <NA>   
+##  8 NLA066~        1 PROB_Lake Target_S~ Targ~   43.9 -115.  ID    Region~ (10,20]   <NA>   
+##  9 NLA066~        2 PROB_Lake Target_S~ Targ~   43.9 -115.  ID    Region~ (10,20]   <NA>   
+## 10 NLA066~        1 PROB_Lake Target_S~ Targ~   41.7  -73.1 CT    Region~ (50,100]  <NA>   
+## # ... with 1,242 more rows, and 40 more variables: STRATUM <chr>, PANEL <chr>, DSGN_CAT <chr>,
+## #   MDCATY <dbl>, WGT <dbl>, WGT_NLA <dbl>, ADJWGT_CAT <chr>, URBAN <chr>, WSA_ECO3 <chr>,
+## #   WSA_ECO9 <chr>, ECO_LEV_3 <dbl>, NUT_REG <chr>, NUTREG_NAME <chr>, ECO_NUTA <chr>,
+## #   LAKE_ORIGIN <chr>, ECO3_X_ORIGIN <chr>, REF_CLUSTER <chr>, RT_NLA <chr>, HUC_2 <dbl>,
+## #   HUC_8 <dbl>, FLAG_INFO <chr>, COMMENT_INFO <chr>, SAMPLED <chr>, SAMPLED_CHEM <chr>,
+## #   INDXSAMP_CHEM <chr>, PTL <dbl>, NTL <dbl>, TURB <dbl>, ANC <dbl>, DOC <dbl>, COND <dbl>,
+## #   SAMPLED_CHLA <chr>, INDXSAMP_CHLA <chr>, CHLA <dbl>, PTL_COND <chr>, NTL_COND <chr>,
+## #   CHLA_COND <chr>, TURB_COND <chr>, ANC_COND <chr>, SALINITY_COND <chr>
 ```
 
 ### Other ways to read in data
