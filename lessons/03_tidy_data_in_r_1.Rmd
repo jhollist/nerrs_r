@@ -41,6 +41,8 @@ Simply put, a data structure is a way for programming languages to handle storin
 
 *And, yet another note:* Computers aren't very good at math.  Or at least they don't deal with floating point data they way many would think.  First, any value that is not an integer, is considered a "Double."  These are approximations, so if we are looking to compare to doubles, we might not always get the result we are expecting.   Again, R4DS is a great read on this: [Section on Numeric Vectors](https://r4ds.had.co.nz/vectors.html#numeric).  But also see [this take from Revolution Analytics](https://blog.revolutionanalytics.com/2009/11/floatingpoint-errors-explained.html) and [techradar](https://www.techradar.com/news/computing/why-computers-suck-at-maths-644771/2). 
 
+### Challenge Questions
+
 <details>
 <summary>Does` 1.0 == 1.001`?</summary>
   
@@ -60,7 +62,32 @@ Simply put, a data structure is a way for programming languages to handle storin
 </details>     
   
 
-*Last note, I promise:* Your elementary education was wrong. In other words rounding 2.5 is 2 and not 3, but rounding 3.5 is 4.  There are actually good reasons for this.  Read up on the IEEE 754 standard [rules on rounding](https://en.wikipedia.org/wiki/IEEE_754#Rounding_rules).  
+*Last note, I promise:* Your elementary education was wrong. 
+
+### Challenge Questions
+
+<details>
+<summary>What do you get when you round `3.5`?</summary>
+  
+```{r}
+round(3.5)
+```
+
+</details>
+
+<details>
+<summary>What do you get when you round `2.5`?</summary>
+  
+```{r}
+round(2.5)
+```
+
+</details>
+
+<details>
+<summary>In other words...</summary>
+In other words, if the last digit is a 5, and the digit we are rounding is even, the we round down. But, if the last digit is a 5, and the digit we around rounding is odd, the we round up. There are actually good reasons for this (think bias).  Read up on the IEEE 754 standard [rules on rounding](https://en.wikipedia.org/wiki/IEEE_754#Rounding_rules).  
+</details>
 
 ### Build a data frame
 Best way to learn what a data frame is is to look at one.  Let's now build a simple data frame from scratch with the `data.frame()` function.  This is mostly a teaching excercise as we will use the function very little in the excercises to come.  
