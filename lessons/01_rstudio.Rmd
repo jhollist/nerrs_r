@@ -64,7 +64,7 @@ Now that we have RStudio opened and know are way around a bit, we are going to j
 
 ## Homework
 
-To practice what we have seen today we will be opening and running code inside of a new script.  The script is available on the class repository at [homework/homework_01.R](https://raw.githubusercontent.com/jhollist/nerrs_r/master/homework/homework_01.R 
+To practice what we have seen today we will be opening and running code inside of a new script.  The script is available on the class repository at [homework/homework_01.R](https://raw.githubusercontent.com/jhollist/nerrs_r/master/homework/homework_01.R) 
 
 1. Open RStudio
 2. Create a new RStudio project and call it "homework_1".

@@ -24,7 +24,7 @@ We will meet every Monday from 2pm to 3pm via Teams ([link to Teams meeting](htt
 |Class 2 (2020-10-19):      |                                                  ||
 |                           |[RStudio and The Punchline](lessons/01_rstudio.md)|[Video](https://youtu.be/Nvqtjt73k3g)|
 |Class 3 (2020-11-02):      |                                                  ||
-|                           |[R Basics: Functions, Syntax, and Packages](lessons/02_r_basics.md)||
+|                           |[R Basics: Functions, Syntax, and Packages](lessons/02_r_basics.md)|[Video](https://youtu.be/DjQMiTpWLto)|
 |Class 4 (2020-11-09):      |                                                  ||
 |                           |[R Basics: Getting Help](lessons/02_r_basics.md#getting-help)||
 |                           |[Tidy Data: Part 1](lessons/03_tidy_data_in_r_1.md)||
