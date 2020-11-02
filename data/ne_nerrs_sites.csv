@@ -1,0 +1,25 @@
+station_code,station_name,reserve_name,latitude,longitude,status,active_dates,state,real_time
+grbgbwq,Great Bay,Great Bay,43.0722,70.8694,Active,Jul 1995-,nh,
+grblrwq,Lamprey River,Great Bay,43.08,70.9344,Active,Oct 1998-,nh,R
+grborwq,Oyster River,Great Bay,43.134,70.911,Active,Apr 2002-,nh,R
+grbsqwq,Squamscott River,Great Bay,43.052403,70.911811,Active,Jul 1997-,nh,R
+narncwq,Nag Creek,Narragansett Bay,41.624850,71.324283,Active,Mar 2002-,ri,
+narpcwq,Potters Cove,Narragansett Bay,41.640550,71.340881,Active,Dec 1995-,ri,
+nartbwq,T-Wharf Bottom,Narragansett Bay,41.578361,71.321125,Active,Jul 2002-,ri,R
+nartswq,T-Wharf Surface,Narragansett Bay,41.578361,71.321125,Active,Jul 2002-,ri,
+nartwwq,T-Wharf,Narragansett Bay,41.579217,71.321417,Inactive,Sep 1996- Jul 2002,ri,
+weldnwq,Drake Island Downstream,Wells,43.3289,70.5603,Inactive,Apr 1996-Dec 1997,me,
+welhtwq,Head of Tide,Wells,43.298347,70.587094,Active,Apr 1995-,me,R
+welinwq,Inlet,Wells,43.320089,70.563442,Active,May 1995-,me,R
+wellmwq,Little River Mouth,Wells,43.340153,70.540603,Active,Apr 2002-,me,
+welmlwq,Mile Road,Wells,43.305,70.5764,Inactive,Mar 2002-Dec 2003,me,
+welsmwq,Skinner Mill,Wells,43.344711,70.549217,Active,Apr 2004-,me,R
+welupwq,Drake Island Upstream,Wells,43.3306,70.5572,Inactive,Apr 1996-Dec 1997,me,
+wqbcbwq,Central Basin,Waquoit Bay,41.5655,70.5211,Inactive,Oct 1995-Dec 1998,ma,
+wqbcrwq,Childs River,Waquoit Bay,41.5798,70.5309,Active,May 2002-,ma,
+wqbctwq,Adjacent to Central Basin,Waquoit Bay,41.5655,70.5211,Inactive,Sep 1998-Oct 1998,ma,
+wqbmhwq,Menauhant,Waquoit Bay,41.5526,70.5485,Active,Mar 2001-,ma,R
+wqbmpwq,Metoxit Point,Waquoit Bay,41.5689,70.5216,Active,Nov 1998-,ma,
+wqbnbwq,North Basin,Waquoit Bay,41.5788,70.5237,Inactive,Oct 1995-Dec 1997,ma,
+wqbnswq,North Basin Surface,Waquoit Bay,41.5788,70.5237,Inactive,Jul 1996-Jul 1996; Jul 1997-Dec 1997,ma,
+wqbslwq,Sage Lot,Waquoit Bay,41.5542,70.5084,Active,May 2002-,ma,

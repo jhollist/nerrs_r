@@ -41,7 +41,7 @@ Simply put, a data structure is a way for programming languages to handle storin
 
 *And, yet another note:* Computers aren't very good at math.  Or at least they don't deal with floating point data they way many would think.  First, any value that is not an integer, is considered a "Double."  These are approximations, so if we are looking to compare to doubles, we might not always get the result we are expecting.   Again, R4DS is a great read on this: [Section on Numeric Vectors](https://r4ds.had.co.nz/vectors.html#numeric).  But also see [this take from Revolution Analytics](https://blog.revolutionanalytics.com/2009/11/floatingpoint-errors-explained.html) and [techradar](https://www.techradar.com/news/computing/why-computers-suck-at-maths-644771/2). 
 
-### Challenge Questions
+#### Challenge Questions
 
 <details>
 <summary>Does` 1.0 == 1.001`?</summary>
@@ -64,7 +64,7 @@ Simply put, a data structure is a way for programming languages to handle storin
 
 *Last note, I promise:* Your elementary education was wrong. 
 
-### Challenge Questions
+#### Challenge Questions
 
 <details>
 <summary>What do you get when you round `3.5`?</summary>
@@ -131,28 +131,28 @@ The `read_csv()` function is a re-imagined version of the base R fucntion, `read
 
 Source files for `read_csv()` can either be on a local hard drive or, and this is pretty cool, on the web. We will be using the former for our examples and exercises. If you had a file available from a URL it would be accessed like `mydf <- read.csv("https://example.com/my_cool_file.csv")`. As an aside, paths and the use of forward vs back slash is important. R is looking for forward slashes ("/"), or unix-like paths. You can use these in place of the back slash and be fine. You can use a back slash but it needs to be a double back slash ("\\\\"). This is becuase the single backslash in an escape character that is used to indicate things like newlines or tabs. 
 
-For today's workshop we will focus on both grabbing data from a local file and from a URL, we already have an example of this in our `nla_analysis.R`.  In that file look for the line where we use `read_csv()`
+For today's workshop we will focus on both grabbing data from a local file and from a URL, we already have an example of this in our `nerrs_analysis.R`.  In that file look for the line where we use `read_csv()`
 
 For your convenience, it looks like:
 
 ```{r read_csv, message=FALSE}
-nla_wq_all <- read_csv("nla2007_chemical_conditionestimates_20091123.csv")
+ne_nerrs_wq <- read_csv("ne_nerrs_wq_2020.csv", guess_max = 600000)
 ```
 
 And now we can take a look at our data frame
 
 ```{r look_at}
-nla_wq_all
+ne_nerrs_wq
 ```
 
 ### Other ways to read in data
 
-There are many ways to read in data with R.  If you have questions about this, please let Jeff know.  He's happy to chat more about it.  Before we move on though, I will show an example of one other way we can do this.   Since Excel spreadsheets are so ubiquitous we need a reliable way to read in data stored in an excel spreadsheet.  There are a variety of packages that provide this capability, but by far the best (IMHO) is `readxl` which is part of the Tidyverse.  This is how we read in an File:
+There are many ways to read in data with R.  If you have questions about this, please let Jeff know.  He's happy to chat more about it.  Before we move on though, I will show an example of one other way we can do this.   Since Excel spreadsheets are so ubiquitous we need a reliable way to read in data stored in an excel spreadsheet.  There are a variety of packages that provide this capability, but by far the best (IMHO) is `readxl` which is part of the Tidyverse.  You can download this file from [ne_nerrs_wq_2020.xlsx]() and once it is downloaded, this is how we would read it in:
 
 ```{r readxl}
 # You'll very likely need to install it first!!!  How'd we do that?
 library(readxl)
-nla_wq_excel <- read_excel("nla2007_wq.xlsx")
+ne_nerrs_wq_excel <- read_excel("ne_nerrs_wq_2020.xlsx", guess_max = 600000)
 ```
 
 This is the simplest case, but lets dig into the options to see what's possible
@@ -168,7 +168,7 @@ If you are new to R and coming from mostly and Excel background, then you may wa
 
 ## Homeowrk 3.1
 
-For this Homework, let's read in a new dataset but this time, directly from a URL.  We are still working on the `nla_analysis.R` Script
+For this Homework, let's read in a new dataset but this time, directly from a URL.  We are still working on the `nerrs_analysis.R` Script
 
 1. Add a new line of code, starting after the `read_csv` line we looked at above (on or around line 39).  
 2. Use the `read_csv()` function to read in "https://www.epa.gov/sites/production/files/2014-01/nla2007_sampledlakeinformation_20091113.csv", and assign the output to a data frame named `nla_sites`.
