@@ -32,4 +32,6 @@ if(!file.exists("data/ne_nerrs_wq_2020.csv")){
 ne_nerrs_sites <- site_codes()
 ne_nerrs_sites %>%
   filter(station_code %in% sites) %>%
-  View()
+  select(-params_reported, -lat_long, -nerr_site_id) %>%
+  select(station_code, station_name, reserve_name, everything()) %>%
+  write_csv(here::here("data/ne_nerrs_sites.csv"))
