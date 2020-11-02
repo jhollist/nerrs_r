@@ -41,8 +41,6 @@ Simply put, a data structure is a way for programming languages to handle storin
 
 *And, yet another note:* Computers aren't very good at math.  Or at least they don't deal with floating point data they way many would think.  First, any value that is not an integer, is considered a "Double."  These are approximations, so if we are looking to compare to doubles, we might not always get the result we are expecting.   Again, R4DS is a great read on this: [Section on Numeric Vectors](https://r4ds.had.co.nz/vectors.html#numeric).  But also see [this take from Revolution Analytics](https://blog.revolutionanalytics.com/2009/11/floatingpoint-errors-explained.html) and [techradar](https://www.techradar.com/news/computing/why-computers-suck-at-maths-644771/2). 
 
-#### Challenge Questions
-
 <details>
 <summary>Does` 1.0 == 1.001`?</summary>
   
@@ -62,9 +60,7 @@ Simply put, a data structure is a way for programming languages to handle storin
 </details>     
   
 
-*Last note, I promise:* Your elementary education was wrong. 
-
-#### Challenge Questions
+*Last note, I promise:* Your elementary education was wrong, at least about rounding. 
 
 <details>
 <summary>What do you get when you round `3.5`?</summary>
@@ -149,7 +145,7 @@ ne_nerrs_wq
 
 There are many ways to read in data with R.  If you have questions about this, please let Jeff know.  He's happy to chat more about it.  Before we move on though, I will show an example of one other way we can do this.   Since Excel spreadsheets are so ubiquitous we need a reliable way to read in data stored in an excel spreadsheet.  There are a variety of packages that provide this capability, but by far the best (IMHO) is `readxl` which is part of the Tidyverse.  You can download this file from [ne_nerrs_wq_2020.xlsx]() and once it is downloaded, this is how we would read it in:
 
-```{r readxl}
+```{r readxl, eval=FALSE}
 # You'll very likely need to install it first!!!  How'd we do that?
 library(readxl)
 ne_nerrs_wq_excel <- read_excel("ne_nerrs_wq_2020.xlsx", guess_max = 600000)
@@ -171,6 +167,6 @@ If you are new to R and coming from mostly and Excel background, then you may wa
 For this Homework, let's read in a new dataset but this time, directly from a URL.  We are still working on the `nerrs_analysis.R` Script
 
 1. Add a new line of code, starting after the `read_csv` line we looked at above (on or around line 39).  
-2. Use the `read_csv()` function to read in "https://www.epa.gov/sites/production/files/2014-01/nla2007_sampledlakeinformation_20091113.csv", and assign the output to a data frame named `nla_sites`.
+2. Use the `read_csv()` function to read in "https://raw.githubusercontent.com/jhollist/nerrs_r/master/data/ne_nerrs_sites.csv", and assign the output to a data frame named `ne_nerrs_sites`.
 3. How many rows and columns do we have in this data frame?  
 4. What is stored in the fourth column of this data frame?
