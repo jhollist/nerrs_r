@@ -33,8 +33,8 @@ In this lesson we will cover the basics of data in R and will do so from a somew
 - [Tidy data](#tidy-data)
 
 ## Exercises
-- [Exercise 3.2](#exercise-32)
-- [Exercise 3.3](#exercise-33)
+- [Homework 3.2](#exercise-32)
+
 
 ## Tidy data
 
@@ -114,36 +114,27 @@ penguin_bill_ratio <- penguins %>%
 penguin_bill_ratio
 ```
 
-## Exercise 3.2
-
-For this exercise we will dig into our datasets and find ways to tidy them up.  We first need to clean up the new data frame,`nla_sites`, that we loaded up in Exercise 3.1.  Add new lines of code after the section of code that cleans up the `nla_wq` data frame. Add some comments to your script that describe what we are doing.  
-
-1. Filter out just the first visits (e.g. VISIT_NO equal to 1)
-2. Select the following columns: SITE_ID, STATE_NAME, and CNTYNAME
-3. Make all of our columns names lower case (Hint: Take a look at the code in nla_analysis.R where we manipulate our data)
-4. Make all the character fields lower case (Hint: Take a look at the code in nla_analysis.R where we manipulate our data)
-5. Keep all these changes in the `nla_sites` data frame.
-
 #### group_by and summarize
 
-Now back to iris.  What if we want to get some summary statistics of our important petal ratio metric for each of the species?  Grouping the data by species, and then summarizing those groupings will let us accomplish this.
+What if we want to get some summary statistics of our important bill ratio metric for each of the species?  Grouping the data by species, and then summarizing those groupings will let us accomplish this.
 
 ```{r}
-iris_petal_ratio_species <- iris %>%
-  select(species = Species, petal_width = Petal.Width, petal_length = Petal.Length) %>%
-  mutate(petal_ratio = petal_width/petal_length) %>%
+penguin_bill_ratio_species <- penguins %>%
+  select(species = species, bill_depth = bill_depth_mm, bill_length = bill_length_mm) %>%
+  mutate(bill_ratio = bill_depth/bill_length) %>%
   group_by(species) %>%
-  summarize(mean_petal_ratio = mean(petal_ratio),
-            sd_petal_ratio = sd(petal_ratio),
-            median_petal_ratio = median(petal_ratio))
-iris_petal_ratio_species
+  summarize(mean_petal_ratio = mean(bill_ratio, na.rm = TRUE),
+            sd_petal_ratio = sd(bill_ratio, na.rm = TRUE),
+            median_petal_ratio = median(bill_ratio, na.rm = TRUE))
+penguin_bill_ratio_species
 ```
+
 
 #### left_join
 
 Lastly, we might also have information spread across multiple data frames.  This is the same concept as having multiple tables in a relational database.  There are MANY ways to combine (aka. "join) tables like this and most of them have a `dplyr` verb implemented for them.  We are going to focus on one, the `left_join()`.
 
-Instead of continuing with the `iris` data we will create some data frames to work with for these examples.
+Instead of continuing with the `penguins` data we will create some data frames to work with for these examples.
 
 ```{r join_data}
 left_table <- data.frame(left_id = 1:6, 
@@ -155,7 +146,7 @@ left_table
 right_table
 ```
 
-To combine these two tables into one we can `join` them.  In particular we will use a `left_join()` which keeps all records from the first table (i.e the "left" table) and adds only the matching records in the second table (i.e. the "right" table).  This is easier to grok by looking at the results.
+To combine these two tables into one we can `join` them.  In particular we will use a `left_join()` which keeps all records from the first table (i.e the "left" table) and adds only the matching records in the second table (i.e. the "right" table).  This is easier to understand by looking at the results.
 
 ```{r left_join}
 left_right_table <- left_table %>%
@@ -163,12 +154,15 @@ left_right_table <- left_table %>%
 left_right_table
 ```
 
-## Exercise 3.3
+## Homework 3.2
 
-Let's now practice combining two data frames and summarizing some information in that combine data frame. We are still working on the `nla_analysis.R` script and you can add this code after that section we just completed on `nla_sites`.  Don't forget your comments!
+For this homework we will work on tidying up our datasets dig into our datasets and find ways to tidy them up.  We first need to clean up the new data frame,`ne_nerrs_sites`, that we loaded up in Homework 3.1.  Add new lines of code after the section of code that cleans up the `ne_nerrs_wq` data frame (e.g. right before the commented lines about visualizing data). Add some comments to your script that describe what we are doing.  I fully acknowledge that this is a lot and should challenge you.  I can set up "office hours" ahead of time if you need help.  We will discuss in class (or via email if I forget).
 
-1. Use `left_join()` to combine `nla_wq` and `nla_sites` into a new data frame called `nla_2007`
-2. Using `group_by()` and `summarize`, let's look at median chlorophyll per EPA Region. (Hint: There are some NA's that we will need to deal with.  Use `?median` and try to figure out how to remove those when doing this calculation)
-3. Re-do the above and include the minimum and maximum values.
-4. Bonus: Use `arrange() to order the output by mean chlorophyll.
+1. All of this work should be stored to a new data frame called `ne_nerrs_wq_latlong`.
+2. Create a new column in the `ne_nerrs_sites` data frame, called `reserve` that contains just the reserve code.  You will need to figure out which `dplyr` verb to use, but this code should help assign that `substr(station_code, 1, 3)`.
+3. We now want to use this new `reserve` column, and calculate an average latitude and longitude for each reserve, saving these to `lat_avg` and `long_avg`, respectively.  Think grouping and summarizing here.
+5. Join all of this with the `ne_nerrs_wq` data frame. 
+6. The end result should be a data frame with all of our water quality variables, plus the average coordinates for each reserve. 
+
+
   
