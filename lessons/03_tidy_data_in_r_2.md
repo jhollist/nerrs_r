@@ -1,3 +1,8 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 
 
 # Tidy Data in R
@@ -36,34 +41,60 @@ There are a lot of different ways to manipulate data in R, but one that is part 
 
 #### select
 
-Often we get datasets that have many columns or columns that need to be re-ordered.  We can accomplish both of these with `select`.  Here's a quick example with the `iris` dataset.  We will also be introducing the concept of the pipe: `%>%` which we will be using going forward.  Let's look at some code that we can disect.
+Often we get datasets that have many columns or columns that need to be re-ordered.  We can accomplish both of these with `select`.  Here's a quick example with the `penguins` dataset.  We will also be introducing the concept of the pipe: `%>%` which we will be using going forward.  Let's look at some code that we can dissect.
+
+First, without the pipe:
 
 
 ```r
-iris_petals <- iris %>%
-  select(Species, Petal.Width, Petal.Length) %>%
-  as_tibble() #the as_tibble function helps make the output look nice
-iris_petals
+penguin_bill <- select(penguins, species, bill_depth_mm, bill_length_mm)
+penguin_bill
 ```
 
 ```
-## # A tibble: 150 x 3
-##    Species Petal.Width Petal.Length
-##    <fct>         <dbl>        <dbl>
-##  1 setosa          0.2          1.4
-##  2 setosa          0.2          1.4
-##  3 setosa          0.2          1.3
-##  4 setosa          0.2          1.5
-##  5 setosa          0.2          1.4
-##  6 setosa          0.4          1.7
-##  7 setosa          0.3          1.4
-##  8 setosa          0.2          1.5
-##  9 setosa          0.2          1.4
-## 10 setosa          0.1          1.5
-## # ... with 140 more rows
+## # A tibble: 344 x 3
+##    species bill_depth_mm bill_length_mm
+##    <fct>           <dbl>          <dbl>
+##  1 Adelie           18.7           39.1
+##  2 Adelie           17.4           39.5
+##  3 Adelie           18             40.3
+##  4 Adelie           NA             NA  
+##  5 Adelie           19.3           36.7
+##  6 Adelie           20.6           39.3
+##  7 Adelie           17.8           38.9
+##  8 Adelie           19.6           39.2
+##  9 Adelie           18.1           34.1
+## 10 Adelie           20.2           42  
+## # ... with 334 more rows
 ```
 
-The end result of this is a data frame, `iris_petals` that has three columns: Species, Petal.Width and Petal.Length in the order that we specified.  And the syntax we are now using is "piped" in that we use the `%>%` operator to send something from before the operator (a.k.a. "to the left") to the first argument of the function after the operator (a.k.a. "to the right").  This allows us to write our code in the same order as we think of it.  The best explanation of this is (again) from R For Data Science in the [Piping chapter](http://r4ds.had.co.nz/pipes.html).
+Then the same thing, but using the pipe instead:
+
+
+```r
+penguin_bill <- penguins %>%
+  select(species, bill_depth_mm, bill_length_mm)
+penguin_bill
+```
+
+```
+## # A tibble: 344 x 3
+##    species bill_depth_mm bill_length_mm
+##    <fct>           <dbl>          <dbl>
+##  1 Adelie           18.7           39.1
+##  2 Adelie           17.4           39.5
+##  3 Adelie           18             40.3
+##  4 Adelie           NA             NA  
+##  5 Adelie           19.3           36.7
+##  6 Adelie           20.6           39.3
+##  7 Adelie           17.8           38.9
+##  8 Adelie           19.6           39.2
+##  9 Adelie           18.1           34.1
+## 10 Adelie           20.2           42  
+## # ... with 334 more rows
+```
+
+The end result of this is a data frame, `penguin_bill` that has three columns: species,  bill_depth_mm and bill_length_mm in the order that we specified.  And the syntax we are now using is "piped" in that we use the `%>%` operator to send something from before the operator (a.k.a. "to the left") to the first argument of the function after the operator (a.k.a. "to the right").  This allows us to write our code in the same order as we think of it.  The best explanation of this is (again) from R For Data Science in the [Piping chapter](http://r4ds.had.co.nz/pipes.html).
 
 #### filter
 
@@ -71,59 +102,86 @@ The `filter()` function allows us to fiter our data that meets certain criteria.
 
 
 ```r
-iris_petals_virginica <- iris %>%
-  select(species = Species, petal_width = Petal.Width, petal_length = Petal.Length) %>%
-  filter(species == "virginica") %>%
-  filter(petal_width >= median(petal_width)) %>%
-  as_tibble()
-iris_petals_virginica  
+penguin_bill_gentoo <- penguins %>%
+  select(species = species, bill_depth = bill_depth_mm, bill_length = bill_length_mm) %>%
+  filter(species == "Gentoo") 
+penguin_bill_gentoo  
 ```
 
 ```
-## # A tibble: 29 x 3
-##    species   petal_width petal_length
-##    <fct>           <dbl>        <dbl>
-##  1 virginica         2.5          6  
-##  2 virginica         2.1          5.9
-##  3 virginica         2.2          5.8
-##  4 virginica         2.1          6.6
-##  5 virginica         2.5          6.1
-##  6 virginica         2            5.1
-##  7 virginica         2.1          5.5
-##  8 virginica         2            5  
-##  9 virginica         2.4          5.1
-## 10 virginica         2.3          5.3
-## # ... with 19 more rows
+## # A tibble: 124 x 3
+##    species bill_depth bill_length
+##    <fct>        <dbl>       <dbl>
+##  1 Gentoo        13.2        46.1
+##  2 Gentoo        16.3        50  
+##  3 Gentoo        14.1        48.7
+##  4 Gentoo        15.2        50  
+##  5 Gentoo        14.5        47.6
+##  6 Gentoo        13.5        46.5
+##  7 Gentoo        14.6        45.4
+##  8 Gentoo        15.3        46.7
+##  9 Gentoo        13.4        43.3
+## 10 Gentoo        15.4        46.8
+## # ... with 114 more rows
 ```
 
-#### mutate
-
-Now say we have some research that suggest the ratio of the petal width and petal length is imporant.  We might want to add that as a new column in our data set.  The `mutate` function does this for us.
+And we can combine a few more steps:
 
 
 ```r
-iris_petals_ratio <- iris %>%
-  select(species = Species, petal_width = Petal.Width, petal_length = Petal.Length) %>%
-  mutate(petal_ratio = petal_width/petal_length) %>%
-  as_tibble()
-iris_petals_ratio
+penguin_bill_gentoo_big <- penguins %>%
+  select(species = species, bill_depth = bill_depth_mm, bill_length = bill_length_mm) %>%
+  filter(species == "Gentoo") %>%
+  filter(bill_length >= median(bill_length, na.rm = TRUE)) 
+penguin_bill_gentoo_big
 ```
 
 ```
-## # A tibble: 150 x 4
-##    species petal_width petal_length petal_ratio
-##    <fct>         <dbl>        <dbl>       <dbl>
-##  1 setosa          0.2          1.4      0.143 
-##  2 setosa          0.2          1.4      0.143 
-##  3 setosa          0.2          1.3      0.154 
-##  4 setosa          0.2          1.5      0.133 
-##  5 setosa          0.2          1.4      0.143 
-##  6 setosa          0.4          1.7      0.235 
-##  7 setosa          0.3          1.4      0.214 
-##  8 setosa          0.2          1.5      0.133 
-##  9 setosa          0.2          1.4      0.143 
-## 10 setosa          0.1          1.5      0.0667
-## # ... with 140 more rows
+## # A tibble: 62 x 3
+##    species bill_depth bill_length
+##    <fct>        <dbl>       <dbl>
+##  1 Gentoo        16.3        50  
+##  2 Gentoo        14.1        48.7
+##  3 Gentoo        15.2        50  
+##  4 Gentoo        14.5        47.6
+##  5 Gentoo        16.1        49  
+##  6 Gentoo        14.6        48.4
+##  7 Gentoo        15.7        49.3
+##  8 Gentoo        15.2        49.2
+##  9 Gentoo        15.1        48.7
+## 10 Gentoo        14.3        50.2
+## # ... with 52 more rows
+```
+
+Pay attention to a few things here.  First, what happened to our column names as we worked our way through the piped workflow (e.g. look at what we did to `bill_length`).  Also, see how we were able to nest some other functions here.
+
+#### mutate
+
+Now say we have some research that suggest the ratio of the bill depth and bill length is important.  We might want to add that as a new column in our data set.  The `mutate` function does this for us.
+
+
+```r
+penguin_bill_ratio <- penguins %>%
+  select(species = species, bill_depth = bill_depth_mm, bill_length = bill_length_mm) %>%
+  mutate(bill_ratio = bill_depth/bill_length)
+penguin_bill_ratio
+```
+
+```
+## # A tibble: 344 x 4
+##    species bill_depth bill_length bill_ratio
+##    <fct>        <dbl>       <dbl>      <dbl>
+##  1 Adelie        18.7        39.1      0.478
+##  2 Adelie        17.4        39.5      0.441
+##  3 Adelie        18          40.3      0.447
+##  4 Adelie        NA          NA       NA    
+##  5 Adelie        19.3        36.7      0.526
+##  6 Adelie        20.6        39.3      0.524
+##  7 Adelie        17.8        38.9      0.458
+##  8 Adelie        19.6        39.2      0.5  
+##  9 Adelie        18.1        34.1      0.531
+## 10 Adelie        20.2        42        0.481
+## # ... with 334 more rows
 ```
 
 ## Exercise 3.2
