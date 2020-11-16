@@ -29,7 +29,7 @@ In this lesson we will cover the basics of data in R and will do so from a somew
 - [Reading in data](#reading-in-data)
 
 ## Exercises
-- [Homework.1](#homework-31)
+- [Homework 3.1](#homework-31)
 
 ## Data in R: The data frame
 
