@@ -210,7 +210,7 @@ This is the simplest case, but lets dig into the options to see what's possible
 If you are new to R and coming from mostly and Excel background, then you may want to think a bit more about column names than you usually might.  Excel is very flexible when it comes to naming columns and this certainly has its advantages when the end user of that data is a human.  However, humans don't do data analysis.  Computers do.  So at some point the data in that spreadsheet will likely need to be read into software that can do this analysis.  To ease this process it is best to keep column names simple, without spaces, and without special characters (e.g. !, @, &, $, etc.).  While it is possible to deal with these cases, it is not straightforward, especially for new users.  So, when working with your data (or other people's data) take a close look at the column names if you are running into problems reading that data into R.  I suggest using all lower case with separate words indicated by and underscore.  Things like "chlorophyll_a" or "total_nitrogen" are good examples of decent column names.
 
 
-## Homeowrk 3.1
+## Homework 3.1
 
 For this Homework, let's read in a new dataset but this time, directly from a URL.  We are still working on the `nerrs_analysis.R` Script
 
