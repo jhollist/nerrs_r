@@ -25,20 +25,20 @@ We will meet every Monday from 2pm to 3pm via Teams ([link to Teams meeting](htt
 |                           |[RStudio and The Punchline](lessons/01_rstudio.md)|[Video](https://youtu.be/Nvqtjt73k3g)|
 |Class 3 (2020-11-02):      |                                                  ||
 |                           |[R Basics: Functions, Syntax, and Packages](lessons/02_r_basics.md)|[Video](https://youtu.be/DjQMiTpWLto)|
-|Class 4 (2020-11-09):      |                                                  ||
-|                           |[R Basics: Getting Help](lessons/02_r_basics.md#getting-help)||
+|Class 4 (2020-11-16):      |                                                  ||
+|                           |[R Basics: Getting Help](lessons/02_r_basics.md#getting-help)|[Video](https://youtu.be/NGe85RBug8s)|
 |                           |[Tidy Data: Part 1](lessons/03_tidy_data_in_r_1.md)||
-|Class 5 (2020-11-16):      |                                                  ||
+|Class 5 (2020-11-23):      |                                                  ||
 |                           |[Finish Up Tidy Data: Part 1](lessons/03_tidy_data_in_r_1.md)||
 |                           |[Tidy Data: Part 2](lessons/03_tidy_data_in_r_2.md)||
-|Class 6 (2020-11-23):      |                                                  ||
+|Class 6 (2020-11-30):      |                                                  ||
 |                           |[Finish up Tidy Data: Part 2](lessons/03_tidy_data_in_r_2.md#filter)||
-|Class 7 (2020-11-30):      |                                                  ||
+|Class 7 (2020-12-07):      |                                                  ||
 |                           |[Data Viz: Part 1](lessons/04_data_viz_with_ggplot2.md)||
-|Class 8 (2020-12-07):      |                                                  ||
+|Class 8 (2020-12-14):      |                                                  ||
 |                           |[Data Viz: Part 2](lessons/04_data_viz_with_ggplot2.md)||
 |                           |[RR and Rmarkdown](lessons/05_rr_and_rmarkdown.md)||
-|Class 9 (2020-12-14):      |                                                  ||
+|Class 9 (2020-12-21):      |                                                  ||
 |                           |[Basic Stats](lessons/06_basic_stats.md)          ||
 
 ## EPA Disclaimer
