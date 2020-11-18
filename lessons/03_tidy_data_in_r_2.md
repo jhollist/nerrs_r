@@ -222,7 +222,9 @@ left_table <- data.frame(left_id = 1:6,
                          names = c("Bob", "Sue", "Jeff", "Alice", "Joe", "Betty"))
 right_table <- data.frame(right_id = 1:5, 
                           left_id = c(2,1,3,6,7), 
-                          age = c(17,26,45,32,6)) 
+                          age = c(17,26,45,32,6),
+                          height = c(64, 70, 72.5, 61, 75),
+                          weight = c(125, 175, 210, 120, 235)) 
 left_table
 ```
 
@@ -241,12 +243,12 @@ right_table
 ```
 
 ```
-##   right_id left_id age
-## 1        1       2  17
-## 2        2       1  26
-## 3        3       3  45
-## 4        4       6  32
-## 5        5       7   6
+##   right_id left_id age height weight
+## 1        1       2  17   64.0    125
+## 2        2       1  26   70.0    175
+## 3        3       3  45   72.5    210
+## 4        4       6  32   61.0    120
+## 5        5       7   6   75.0    235
 ```
 
 To combine these two tables into one we can `join` them.  In particular we will use a `left_join()` which keeps all records from the first table (i.e the "left" table) and adds only the matching records in the second table (i.e. the "right" table).  This is easier to understand by looking at the results.
@@ -259,24 +261,85 @@ left_right_table
 ```
 
 ```
-##   left_id names right_id age
-## 1       1   Bob        2  26
-## 2       2   Sue        1  17
-## 3       3  Jeff        3  45
-## 4       4 Alice       NA  NA
-## 5       5   Joe       NA  NA
-## 6       6 Betty        4  32
+##   left_id names right_id age height weight
+## 1       1   Bob        2  26   70.0    175
+## 2       2   Sue        1  17   64.0    125
+## 3       3  Jeff        3  45   72.5    210
+## 4       4 Alice       NA  NA     NA     NA
+## 5       5   Joe       NA  NA     NA     NA
+## 6       6 Betty        4  32   61.0    120
 ```
+
+# Pivoting
+
+Another common issue that we run into with datasets, especially as we prepare datasets for furhter analysis and visualization, is whether or not that data is (or should be) stored in a "long format" or a "wide format".  There's a lot written about this, but the wikepedia article on [Wide and Narrow Data (Narrow == Long)](https://en.wikipedia.org/wiki/Wide_and_narrow_data) is perfectly adequate.  But lets take a look at the `left_right_table` example that we just created.  As is it is in a wide format.  From the `tidyr` package we can use the `pivot_longer()` and `pivot_wider()` functions to switch between these two formats.
+
+
+```r
+# Convert from wide format to long format
+left_right_table_long <- pivot_longer(data = left_right_table, 
+                                      cols = c("age", "height", "weight"), 
+                                      names_to = "parameters",
+                                      values_to = "values")
+left_right_table_long
+```
+
+```
+## # A tibble: 18 x 5
+##    left_id names right_id parameters values
+##      <dbl> <chr>    <int> <chr>       <dbl>
+##  1       1 Bob          2 age          26  
+##  2       1 Bob          2 height       70  
+##  3       1 Bob          2 weight      175  
+##  4       2 Sue          1 age          17  
+##  5       2 Sue          1 height       64  
+##  6       2 Sue          1 weight      125  
+##  7       3 Jeff         3 age          45  
+##  8       3 Jeff         3 height       72.5
+##  9       3 Jeff         3 weight      210  
+## 10       4 Alice       NA age          NA  
+## 11       4 Alice       NA height       NA  
+## 12       4 Alice       NA weight       NA  
+## 13       5 Joe         NA age          NA  
+## 14       5 Joe         NA height       NA  
+## 15       5 Joe         NA weight       NA  
+## 16       6 Betty        4 age          32  
+## 17       6 Betty        4 height       61  
+## 18       6 Betty        4 weight      120
+```
+
+```r
+# Convert from long format to wide format (should looke like our original)
+left_right_table_wide <- pivot_wider(data = left_right_table_long,
+                                     names_from = "parameters",
+                                     values_from = "values")
+left_right_table_wide
+```
+
+```
+## # A tibble: 6 x 6
+##   left_id names right_id   age height weight
+##     <dbl> <chr>    <int> <dbl>  <dbl>  <dbl>
+## 1       1 Bob          2    26   70      175
+## 2       2 Sue          1    17   64      125
+## 3       3 Jeff         3    45   72.5    210
+## 4       4 Alice       NA    NA   NA       NA
+## 5       5 Joe         NA    NA   NA       NA
+## 6       6 Betty        4    32   61      120
+```
+
 
 ## Homework 3.2
 
 For this homework we will work on tidying up our datasets dig into our datasets and find ways to tidy them up.  We first need to clean up the new data frame,`ne_nerrs_sites`, that we loaded up in Homework 3.1.  Add new lines of code after the section of code that cleans up the `ne_nerrs_wq` data frame (e.g. right before the commented lines about visualizing data, approximately line 85). Add some comments to your script that describe what we are doing.  I fully acknowledge that this is a lot and should challenge you.  I can set up "office hours" ahead of time if you need help.  We will discuss in class (or via email if I forget).
 
 1. All of this work should be stored to a new data frame called `ne_nerrs_wq_sites`.
-2. Let's select some columns:  `nerr_site_id`, `station_name`, `latitude`, `longitude`, `reserve_name`.  When you do the select rename `nerr_site_id` to `reserve`.
-3. Now lets filter out just the northeast reserves.  They are: "grb",  "nar", "wel", and "wqb".  Look at the Gentoo and Adelie example above for some hints.   
+2. Let's select some columns:  `nerr_site_id`, `latitude`, `longitude`, `reserve_name`.  When you do the select rename `nerr_site_id` to `reserve`.
+3. Now lets filter out just the northeast reserves.  They are: "grb",  "nar", "wel", and "wqb".  Look at the Gentoo and Adelie example above for some hints.  
+4. Now group by reserve and summarize the latitude and longitude by calculating the mean for those. The newly created column names should be, `lat_mean` and `long_mean`.
 5. Join all of this with the `ne_nerrs_wq` data frame. 
-6. The end result should be a data frame with all of our water quality variables, plus the average coordinates for each reserve. 
+6. This would result in a long format data table.  We want to convert that to wide.  Use the appropriate function from `tidyr` and spread the `param` and `measurement` columns out wide. 
+7. The end result should be a data frame with all of our water quality variables, plus the average coordinates for each reserve in a wide format with a column for each of the variables. 
 
 
   

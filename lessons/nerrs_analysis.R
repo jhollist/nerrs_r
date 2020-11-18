@@ -84,7 +84,7 @@ ne_nerrs_wq
 
 ################################################################################
 # Visualize Data: Next step is to visualize the data.  Let's look at the
-# association between total nitrogen, total phosphorus, and chlorophyll *a*.
+# time series for do, salinity, temp, and turbidity for each reserve.
 
 ne_nerrs_wq_gg <- ne_nerrs_wq %>%
   ggplot(aes(x=date,y=measurement)) +

@@ -187,20 +187,37 @@ penguin_scatter_lm_color
 
 Notice, that we specified the `aes()` again, but for `geom_smooth()`.  We only specified the x and y in the original `ggplot` object, so if want to do something different in the subsequent functions we need to overwrite it for the function in which we want a different mapping (i.e. groups).
 
-In short, some of the initial setup for ggplot is a bit more verbose than base R, but when we want to do some more complex plots it is much easier in `ggplot2`.  
+Now, I don't particular love the default look and feel (e.g. background, plot boundaries, fonts, ...) of these plots.  We can control all of the with the use of `theme()`.  Digging into the details on that is a bit beyond what we want to do now.  That being said there are some other canned themes we can use
 
-Before we get into another exercise, lets look at some of the other geometries.  The best place to do this is excellent `ggplot2` documentation of the [geom functions](http://docs.ggplot2.org/current/).
+```{r}
+# Black and white
+penguin_scatter_lm_color + theme_bw()
+
+# Classic
+penguin_scatter_lm_color + theme_classic()
+
+# Minimal
+penguin_scatter_lm_color + theme_minimal()
+```
+
+And if you want a whole lot more canned themes to play with, install and load the `ggthemes` package.  And I'll put in a plug here for the `hrbrthemes` from Bob Rudis.  My go to is his `theme_ipsum_rc()`.
+
+The above material is A LOT!!  In short, we've seen that some of the initial setup for ggplot is a bit more verbose than base R, but when we want to do some more complex plots it is much easier in `ggplot2`.  
+
+Lastly, we have only looked at one geometry, but there are tons.  Lets look at some of those.  The best place to do this is excellent `ggplot2` documentation of the [geom functions](http://docs.ggplot2.org/current/).
 
 ## Punchline Example Explained
 Now that we have the basics of `ggplot2` down, let's take a closer look at our example in `nerrs_analysis.R`.
 
 ## Homework 4.1
-For this exercise we will work on creating a new plot from scratch.  One of the concepts I hope to get across is that creating a plot is as much knowing data manipulation as it is knowing the details of your plotting system (`ggplot2` in our case). Add some new code at the end of our `neers_anlaysis.R` that does the following
+For this homework we will work on creating a new plot from scratch.  Add some new code at the end of our `neers_anlaysis.R` that does the following
 
-1. Create a new data frame with the state by state average of total nitrogen, total phosphorus, and chlorophyll *a*
-2. Using this newly created data frame, plot mean total nitrogen on the x-axis, mean total phosphorus on the y-axis, and size and color the points based on the chlorophyll (extra credit if you log transform these data)
+1. Data visualization is as much data manipulation as it is figuring how to create a plot.  We have already taken care of that with our prior homework.  Lets use the `ne_nerrs_wq_sites` data frame to create the new plot 
+2. Let's plot pH on the x-axis, dissolved oxygen on the y-axis, and color the points based on the `reserve_name`.
+3. Use a theme other than the default.
+4. And label your axes with good labels and add a meaningful title.
 3. Try to use `ggplotly` from the `plotly` package to create an interactive version of this plot.
-4. Don't forget to comment your code
+4. Don't forget to comment your code.
 
-This will be a challenging excercise as it includes nearly all of the tidyverse components we have talked about.
+As always, I am available to help if needed, just send me an email!
 
