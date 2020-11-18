@@ -166,7 +166,7 @@ If you are new to R and coming from mostly and Excel background, then you may wa
 
 For this Homework, let's read in a new dataset but this time, directly from a URL.  We are still working on the `nerrs_analysis.R` Script
 
-1. Add a new line of code, starting after the `read_csv` line we looked at above (on or around line 39).  
+1. Add a new line of code, starting after the `read_csv` line we looked at above (on or around line 43).  
 2. Use the `read_csv()` function to read in "https://raw.githubusercontent.com/jhollist/nerrs_r/master/data/ne_nerrs_sites.csv", and assign the output to a data frame named `ne_nerrs_sites`.
-3. How many rows and columns do we have in this data frame?  
-4. What is stored in the fourth column of this data frame?
+3. How many rows and columns do we have in the `ne_nerrs_sites` data frame?  
+4. What is stored in the third column of this data frame?

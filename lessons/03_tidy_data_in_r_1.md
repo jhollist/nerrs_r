@@ -166,21 +166,21 @@ ne_nerrs_wq
 
 ```
 ## # A tibble: 219,190 x 26
-##    datetimestamp        temp f_temp spcond f_spcond   sal f_sal do_pct f_do_pct do_mgl f_do_mgl depth f_depth
-##    <dttm>              <dbl>  <dbl>  <dbl>    <dbl> <dbl> <dbl>  <dbl>    <dbl>  <dbl>    <dbl> <dbl>   <dbl>
-##  1 2020-05-01 05:00:00   7.5      0   0.18        0   0.1     0   101.        0   12.1        0    NA      -1
-##  2 2020-05-01 05:15:00   7.4      0   0.18        0   0.1     0   101.        0   12.1        0    NA      -1
-##  3 2020-05-01 05:30:00   7.4      0   0.18        0   0.1     0   101.        0   12.1        0    NA      -1
-##  4 2020-05-01 05:45:00   7.4      0   0.18        0   0.1     0   101.        0   12.1        0    NA      -1
-##  5 2020-05-01 06:00:00   7.4      0   0.18        0   0.1     0   100.        0   12.1        0    NA      -1
-##  6 2020-05-01 06:15:00   7.4      0   0.18        0   0.1     0   100.        0   12.1        0    NA      -1
-##  7 2020-05-01 06:30:00   7.4      0   0.18        0   0.1     0   100.        0   12.1        0    NA      -1
-##  8 2020-05-01 06:45:00   7.4      0   0.18        0   0.1     0   100.        0   12.1        0    NA      -1
-##  9 2020-05-01 07:00:00   7.4      0   0.18        0   0.1     0   100.        0   12.1        0    NA      -1
-## 10 2020-05-01 07:15:00   7.4      0   0.18        0   0.1     0   100.        0   12.1        0    NA      -1
-## # ... with 219,180 more rows, and 13 more variables: ph <dbl>, f_ph <dbl>, turb <dbl>, f_turb <dbl>,
-## #   chlfluor <dbl>, f_chlfluor <dbl>, level <dbl>, f_level <dbl>, cdepth <dbl>, clevel <dbl>, f_cdepth <dbl>,
-## #   f_clevel <dbl>, site <chr>
+##    datetimestamp        temp f_temp spcond f_spcond   sal f_sal do_pct f_do_pct do_mgl f_do_mgl depth f_depth    ph
+##    <dttm>              <dbl>  <dbl>  <dbl>    <dbl> <dbl> <dbl>  <dbl>    <dbl>  <dbl>    <dbl> <dbl>   <dbl> <dbl>
+##  1 2020-05-01 05:00:00   7.5      0   0.18        0   0.1     0   101.        0   12.1        0    NA      -1   6.8
+##  2 2020-05-01 05:15:00   7.4      0   0.18        0   0.1     0   101.        0   12.1        0    NA      -1   6.8
+##  3 2020-05-01 05:30:00   7.4      0   0.18        0   0.1     0   101.        0   12.1        0    NA      -1   6.8
+##  4 2020-05-01 05:45:00   7.4      0   0.18        0   0.1     0   101.        0   12.1        0    NA      -1   6.8
+##  5 2020-05-01 06:00:00   7.4      0   0.18        0   0.1     0   100.        0   12.1        0    NA      -1   6.8
+##  6 2020-05-01 06:15:00   7.4      0   0.18        0   0.1     0   100.        0   12.1        0    NA      -1   6.8
+##  7 2020-05-01 06:30:00   7.4      0   0.18        0   0.1     0   100.        0   12.1        0    NA      -1   6.8
+##  8 2020-05-01 06:45:00   7.4      0   0.18        0   0.1     0   100.        0   12.1        0    NA      -1   6.8
+##  9 2020-05-01 07:00:00   7.4      0   0.18        0   0.1     0   100.        0   12.1        0    NA      -1   6.8
+## 10 2020-05-01 07:15:00   7.4      0   0.18        0   0.1     0   100.        0   12.1        0    NA      -1   6.8
+## # ... with 219,180 more rows, and 12 more variables: f_ph <dbl>, turb <dbl>, f_turb <dbl>, chlfluor <dbl>,
+## #   f_chlfluor <dbl>, level <dbl>, f_level <dbl>, cdepth <dbl>, clevel <dbl>, f_cdepth <dbl>, f_clevel <dbl>,
+## #   site <chr>
 ```
 
 ### Other ways to read in data
@@ -214,7 +214,7 @@ If you are new to R and coming from mostly and Excel background, then you may wa
 
 For this Homework, let's read in a new dataset but this time, directly from a URL.  We are still working on the `nerrs_analysis.R` Script
 
-1. Add a new line of code, starting after the `read_csv` line we looked at above (on or around line 39).  
+1. Add a new line of code, starting after the `read_csv` line we looked at above (on or around line 43).  
 2. Use the `read_csv()` function to read in "https://raw.githubusercontent.com/jhollist/nerrs_r/master/data/ne_nerrs_sites.csv", and assign the output to a data frame named `ne_nerrs_sites`.
-3. How many rows and columns do we have in this data frame?  
-4. What is stored in the fourth column of this data frame?
+3. How many rows and columns do we have in the `ne_nerrs_sites` data frame?  
+4. What is stored in the third column of this data frame?

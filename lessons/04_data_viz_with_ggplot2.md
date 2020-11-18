@@ -6,21 +6,20 @@
 Visualizing data is an area where R really shines.  There are many ways to plot data with R and these include base R, `lattice`,`grid` and , `ggplot2`.  The only one we will work with is `ggplot2`, which is now (I have no data to back this up), the de-facto standard for visualizing data in R.  Given that `ggplot2` is general package for creating essentially ALL types of visualizations, it can seem quite complex (and it is).  What I hope you will get out of this section is a basic understanding of how to create a figure and, most importantly, how to find help and examples that you can build off of for your own visualizations.  If you want to read more about why some people choose base plotting vs `ggplot2`, the twitter/blogosphere "argument" between [Jeff Leek](https://simplystatistics.org/2016/02/11/why-i-dont-use-ggplot2/) and [David Robinson](http://varianceexplained.org/r/why-I-use-ggplot2/) is worth some time.
 
 ## Lesson Outline
-- [Examples of greatness](#examples-of-greatness)
+- [Examples](#examples)
 - [Basics of `ggplot2`](#basics-of-ggplot2)
 - [Example explained](#example-explained)
 
 ## Exercise
-- [Exercise 4.1](#exercise-41)
+- [Homework 4.1](#homework-41)
 
-## Examples of what is possible
-Before we get started, I do like to show what is possible.  A couple of geospatial examples of maps created in R.
+## Examples
+Before we get started, I do like to show what is possible.
 
 A few examples of maps built with R show this:
 
 ![Trophic State Modeling Results](https://wol-prod-cdn.literatumonline.com/cms/attachment/02405da6-dcc0-438e-93fb-36e6c36f190a/ecs21321-fig-0011-m.jpg)
 
-![London Bike Hires](http://spatialanalysis.co.uk/wp-content/uploads/2012/02/bike_ggplot.png)
 
 ![Facebook Users](http://media.economist.com/sites/default/files/imagecache/original-size/FbMap.jpg)
 
@@ -28,7 +27,7 @@ And some fairly complicated figures:
 
 ![psych_repro](https://d2ufo47lrtsv5s.cloudfront.net/content/sci/349/6251/aac4716/F1.large.jpg?width=800&height=600&carousel=1)
 
-More examples from Jeff's work
+More examples from Jeff's (and Kenny's!) work
 
 ![histos](https://dfzljdn9uc3pi.cloudfront.net/2018/4876/1/fig-2-full.png)
 from: Raposa et al. (2018). Top-down and bottom-up controls on overabundant New England salt marsh crab populations. PeerJ. https://doi.org/10.7717/peerj.4876
@@ -72,8 +71,7 @@ With that finished, we can now use `ggplot2`.  First thing we need to do is to c
 # aes() are the "aesthetics" mappings.  When you simply add the x and y
 # that can seem a bit of a confusing term.  You also use aes() to 
 # change color, shape, size etc. of some items 
-iris_gg <- ggplot(iris,aes(x=Petal.Length,y=Petal.Width))
-iris_gg
+ggplot(penguins, aes(bill_length_mm, bill_depth_mm))
 ```
 
 ![plot of chunk unnamed-chunk-2](figures/unnamed-chunk-2-1.png)
@@ -88,22 +86,22 @@ A side note on syntax.  You will notice that we add new "things" to a ggplot obj
 
 ```r
 #Different syntax than you are used to
-iris_gg + 
+ggplot(penguins, aes(bill_length_mm, bill_depth_mm)) +
   geom_point()
 ```
 
 ![plot of chunk unnamed-chunk-3](figures/unnamed-chunk-3-1.png)
 
-It is usually preferrable to save this to an object.
+It is usually preferable to save this to an object.
 
 
 ```r
 #This too can be saved to an object
-iris_scatter <- iris_gg +
+penguin_gg <- ggplot(penguins, aes(bill_length_mm, bill_depth_mm)) +
   geom_point()
 
 #Call it to show the plot
-iris_scatter
+penguin_gg
 ```
 
 ![plot of chunk unnamed-chunk-4](figures/unnamed-chunk-4-1.png)
@@ -116,10 +114,11 @@ First a title and some axis labels.  These are part of `labs()`.
 
 ```r
 #Getting fancy to show italics and greek symbols
-iris_scatter <- iris_scatter +
-  labs(title="Association Between Iris Petal measurements",
-                     x="Petal Length", y="Petal Width")
-iris_scatter
+penguin_gg <- ggplot(penguins, aes(bill_length_mm, bill_depth_mm)) +
+  geom_point() +
+  labs(title="Association Between Penguin Bill Measurements",
+                     x="Bill Length", y="Bill Depth")
+penguin_gg
 ```
 
 ![plot of chunk unnamed-chunk-5](figures/unnamed-chunk-5-1.png)
@@ -128,9 +127,11 @@ Now to add some colors, shapes etc to the point.  Look at the `geom_point()` doc
 
 
 ```r
-iris_scatter <-  iris_scatter +
-  geom_point(aes(color=Species, shape=Species),size=2)
-iris_scatter
+penguin_gg <- ggplot(penguins, aes(bill_length_mm, bill_depth_mm)) +
+  geom_point(aes(color=species, shape=species),size=2) +
+  labs(title="Association Between Penguin Bill Measurements",
+                     x="Bill Length", y="Bill Depth")
+penguin_gg
 ```
 
 ![plot of chunk unnamed-chunk-6](figures/unnamed-chunk-6-1.png)
@@ -139,50 +140,60 @@ You'll notice we used `aes()` again, but this time inside of the geometry.  This
 
 In short, this is much easier than using base.  Now `ggplot2` really shines when you want to add stats (regression lines, intervals, etc.). 
 
-Lets add a loess line with 95% confidence intervals
+Lets add a loess (LOcal RegrESSion) line with 95% confidence intervals.
 
 
 
 ```r
-iris_scatter_loess <- iris_scatter +
+penguin_scatter_loess <- ggplot(penguins, aes(bill_length_mm, bill_depth_mm)) +
+  geom_point(aes(color=species, shape=species),size=2) +
+  labs(title="Association Between Penguin Bill Measurements",
+                     x="Bill Length", y="Bill Depth") +
   geom_smooth(method = "loess")
-iris_scatter_loess
+penguin_scatter_loess
 ```
 
 ![plot of chunk unnamed-chunk-7](figures/unnamed-chunk-7-1.png)
 
-Try that in `base` with so little code!
-
-Or we could add a linear regression line with:
+Try that in `base` with so little code!  But that doesn't look quite right, so let's try to add a linear regression line with:
 
 
 
 ```r
-iris_scatter_lm <- iris_scatter +
+penguin_scatter_lm <- ggplot(penguins, aes(bill_length_mm, bill_depth_mm)) +
+  geom_point(aes(color=species, shape=species),size=2) +
+  labs(title="Association Between Penguin Bill Measurements",
+                     x="Bill Length", y="Bill Depth") +
   geom_smooth(method="lm")
-iris_scatter_lm
+penguin_scatter_lm
 ```
 
 ![plot of chunk unnamed-chunk-8](figures/unnamed-chunk-8-1.png)
 
-And if we are interested in the regressions by group we could do it this way.
+And that's interesting...  Maybe we shouldn't pool these all together (read up on [Simpson's Paradox](https://en.wikipedia.org/wiki/Simpson%27s_paradox)). 
 
 
 ```r
-iris_scatter_lm_group <- iris_scatter +
-  geom_smooth(method="lm", aes(group=Species))
-iris_scatter_lm_group
+penguin_scatter_lm_group <- ggplot(penguins, aes(bill_length_mm, bill_depth_mm)) +
+  geom_point(aes(color=species, shape=species),size=2) +
+  labs(title="Association Between Penguin Bill Measurements",
+                     x="Bill Length", y="Bill Depth") +
+  geom_smooth(method="lm", aes(group=species))
+penguin_scatter_lm_group
 ```
 
 ![plot of chunk unnamed-chunk-9](figures/unnamed-chunk-9-1.png)
 
-Or, if we wanted our regression lines to match the color.
+And, if we wanted our regression lines to match the color.
 
 
 ```r
-iris_scatter_lm_color <- iris_scatter + 
-  geom_smooth(method="lm", aes(color=Species))
-iris_scatter_lm_color
+penguin_scatter_lm_color <- ggplot(penguins, aes(bill_length_mm, bill_depth_mm)) +
+  geom_point(aes(color=species, shape=species),size=2) +
+  labs(title="Association Between Penguin Bill Measurements",
+                     x="Bill Length", y="Bill Depth") +
+  geom_smooth(method="lm", aes(color=species))
+penguin_scatter_lm_color
 ```
 
 ![plot of chunk unnamed-chunk-10](figures/unnamed-chunk-10-1.png)
@@ -193,11 +204,11 @@ In short, some of the initial setup for ggplot is a bit more verbose than base R
 
 Before we get into another exercise, lets look at some of the other geometries.  The best place to do this is excellent `ggplot2` documentation of the [geom functions](http://docs.ggplot2.org/current/).
 
-## Example explained
-Now that we have the basics of `ggplot2` down, let's take a closer look at our example in `nla_analysis.R`.
+## Punchline Example Explained
+Now that we have the basics of `ggplot2` down, let's take a closer look at our example in `nerrs_analysis.R`.
 
-## Excercise 4.1
-For this exercise we will work on creating a new plot from scratch.  One of the concepts I hope to get across is that creating a plot is as much knowing data manipulation as it is knowing the details of your plotting system (`ggplot2` in our case). Add some new code at the end of our `nla_anlaysis.R` that does the following
+## Homework 4.1
+For this exercise we will work on creating a new plot from scratch.  One of the concepts I hope to get across is that creating a plot is as much knowing data manipulation as it is knowing the details of your plotting system (`ggplot2` in our case). Add some new code at the end of our `neers_anlaysis.R` that does the following
 
 1. Create a new data frame with the state by state average of total nitrogen, total phosphorus, and chlorophyll *a*
 2. Using this newly created data frame, plot mean total nitrogen on the x-axis, mean total phosphorus on the y-axis, and size and color the points based on the chlorophyll (extra credit if you log transform these data)

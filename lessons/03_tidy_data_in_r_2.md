@@ -13,7 +13,7 @@ In this lesson we will cover the basics of data in R and will do so from a somew
 - [Tidy data](#tidy-data)
 
 ## Exercises
-- [Homework 3.2](#exercise-32)
+- [Homework 3.2](#homework-32)
 
 
 ## Tidy data
@@ -102,30 +102,30 @@ The `filter()` function allows us to fiter our data that meets certain criteria.
 
 
 ```r
-penguin_bill_gentoo <- penguins %>%
+penguin_bill_gentoo_adelie <- penguins %>%
   select(species = species, bill_depth = bill_depth_mm, bill_length = bill_length_mm) %>%
-  filter(species == "Gentoo") 
-penguin_bill_gentoo  
+  filter(species == "Gentoo" | species == "Adelie") 
+penguin_bill_gentoo_adelie  
 ```
 
 ```
-## # A tibble: 124 x 3
+## # A tibble: 276 x 3
 ##    species bill_depth bill_length
 ##    <fct>        <dbl>       <dbl>
-##  1 Gentoo        13.2        46.1
-##  2 Gentoo        16.3        50  
-##  3 Gentoo        14.1        48.7
-##  4 Gentoo        15.2        50  
-##  5 Gentoo        14.5        47.6
-##  6 Gentoo        13.5        46.5
-##  7 Gentoo        14.6        45.4
-##  8 Gentoo        15.3        46.7
-##  9 Gentoo        13.4        43.3
-## 10 Gentoo        15.4        46.8
-## # ... with 114 more rows
+##  1 Adelie        18.7        39.1
+##  2 Adelie        17.4        39.5
+##  3 Adelie        18          40.3
+##  4 Adelie        NA          NA  
+##  5 Adelie        19.3        36.7
+##  6 Adelie        20.6        39.3
+##  7 Adelie        17.8        38.9
+##  8 Adelie        19.6        39.2
+##  9 Adelie        18.1        34.1
+## 10 Adelie        20.2        42  
+## # ... with 266 more rows
 ```
 
-And we can combine a few more steps:
+And we can combine steps to get just Gentoo and big bills:
 
 
 ```r
@@ -270,11 +270,11 @@ left_right_table
 
 ## Homework 3.2
 
-For this homework we will work on tidying up our datasets dig into our datasets and find ways to tidy them up.  We first need to clean up the new data frame,`ne_nerrs_sites`, that we loaded up in Homework 3.1.  Add new lines of code after the section of code that cleans up the `ne_nerrs_wq` data frame (e.g. right before the commented lines about visualizing data). Add some comments to your script that describe what we are doing.  I fully acknowledge that this is a lot and should challenge you.  I can set up "office hours" ahead of time if you need help.  We will discuss in class (or via email if I forget).
+For this homework we will work on tidying up our datasets dig into our datasets and find ways to tidy them up.  We first need to clean up the new data frame,`ne_nerrs_sites`, that we loaded up in Homework 3.1.  Add new lines of code after the section of code that cleans up the `ne_nerrs_wq` data frame (e.g. right before the commented lines about visualizing data, approximately line 85). Add some comments to your script that describe what we are doing.  I fully acknowledge that this is a lot and should challenge you.  I can set up "office hours" ahead of time if you need help.  We will discuss in class (or via email if I forget).
 
-1. All of this work should be stored to a new data frame called `ne_nerrs_wq_latlong`.
-2. Create a new column in the `ne_nerrs_sites` data frame, called `reserve` that contains just the reserve code.  You will need to figure out which `dplyr` verb to use, but this code should help assign that `substr(station_code, 1, 3)`.
-3. We now want to use this new `reserve` column, and calculate an average latitude and longitude for each reserve, saving these to `lat_avg` and `long_avg`, respectively.  Think grouping and summarizing here.
+1. All of this work should be stored to a new data frame called `ne_nerrs_wq_sites`.
+2. Let's select some columns:  `nerr_site_id`, `station_name`, `latitude`, `longitude`, `reserve_name`.  When you do the select rename `nerr_site_id` to `reserve`.
+3. Now lets filter out just the northeast reserves.  They are: "grb",  "nar", "wel", and "wqb".  Look at the Gentoo and Adelie example above for some hints.   
 5. Join all of this with the `ne_nerrs_wq` data frame. 
 6. The end result should be a data frame with all of our water quality variables, plus the average coordinates for each reserve. 
 
