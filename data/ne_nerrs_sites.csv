@@ -7,8 +7,8 @@ ace,acefcwq,Fishing Creek,"32° 38' 9.35 N, 80° 21' 56.02 W",32.63593,80.36556,
 ace,acemcnut,Mosquito Creek,"32° 33' 20.88 N, 80° 26' 16.80 W",32.5558,80.438,Active,Mar 2002-,sc,Ashepoo Combahee Edisto Basin,"no23f,po4f,chla_n,no3f,no2f,nh4f",
 ace,acemcwq,Mosquito Creek,"32° 33' 20.88 N, 80° 26' 16.80 W",32.5558,80.438,Active,Oct 2002-,sc,Ashepoo Combahee Edisto Basin,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
 ace,acercwq,Rock Creek,"32° 32' 54.60 N, 80° 30' 12.96 W",32.5485,80.5036,Inactive,Mar 1996-May 1996,sc,Ashepoo Combahee Edisto Basin,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
-ace,acespnut,St. Pierre,"32° 31' 40.80 N, 80° 21' 41.18 W",32.52800,80.36144,Active,Jan 2002-,sc,Ashepoo Combahee Edisto Basin,"no23f,po4f,chla_n,no3f,no2f,nh4f",
-ace,acespwq,St. Pierre,"32° 31' 40.80 N, 80° 21' 41.18 W",32.52800,80.36144,Active,Mar 1995-,sc,Ashepoo Combahee Edisto Basin,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",R
+ace,acespnut,St. Pierre,"32° 31' 40.80 N, 80° 21' 41.18 W",32.528,80.36144,Active,Jan 2002-,sc,Ashepoo Combahee Edisto Basin,"no23f,po4f,chla_n,no3f,no2f,nh4f",
+ace,acespwq,St. Pierre,"32° 31' 40.80 N, 80° 21' 41.18 W",32.528,80.36144,Active,Mar 1995-,sc,Ashepoo Combahee Edisto Basin,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",R
 apa,apacpnut,Cat Point,"29° 42' 7.68 N, 84° 52' 48.72 W",29.7021,84.8802,Active,Apr 2002-,fl,Apalachicola Bay,"po4f,nh4f,no2f,no3f,no23f,chla_n",
 apa,apacpwq,Cat Point,"29° 42' 7.68 N, 84° 52' 48.72 W",29.7021,84.8802,Active,Jan 2002-,fl,Apalachicola Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
 apa,apadbnut,Dry Bar,"29° 40' 28.92 N, 85° 3' 29.88 W",29.6747,85.0583,Active,Apr 2002-,fl,Apalachicola Bay,"po4f,nh4f,no2f,no3f,no23f,chla_n",
@@ -27,7 +27,7 @@ apa,apascnut,Sikes Cut,"29° 36' 24.12 N, 84° 56' 48.12 W",29.6067,84.9467,Acti
 apa,apawpnut,West Pass,"29° 38' 16.44 N, 85° 5' 20.40 W",29.6379,85.089,Active,Apr 2002-,fl,Apalachicola Bay,"po4f,nh4f,no2f,no3f,no23f,chla_n",
 cbm,cbmipnut,Iron Pot Landing,"38° 47' 45.60 N, 76° 43' 14.88 W",38.796,76.7208,Active,Apr 2003-,md,Chesapeake Bay,"no23f,po4f,chla_n,no3f,no2f,nh4f",
 cbm,cbmipwq,Iron Pot Landing,"38° 47' 45.60 N, 76° 43' 14.88 W",38.796,76.7208,Active,Apr 2003-,md,Chesapeake Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",
-cbm,cbmjbmet,Jug Bay,"38° 46' 50.76 N, 76° 42' 29.52 W",38.7807667,76.7082000,Active,Jul 2003-,md,Chesapeake Bay,"atemp,rh,bp,wspd,maxwspd,maxwspdt,wdir,sdwdir,totprcp,totpar,cumprcp",R
+cbm,cbmjbmet,Jug Bay,"38° 46' 50.76 N, 76° 42' 29.52 W",38.7807667,76.7082,Active,Jul 2003-,md,Chesapeake Bay,"atemp,rh,bp,wspd,maxwspd,maxwspdt,wdir,sdwdir,totprcp,totpar,cumprcp",R
 cbm,cbmjbwq,Jug Bay,"38° 46' 45.12 N, 76° 42' 27.72 W",38.7792,76.7077,Inactive,Jul 1995-Dec 2002,md,Chesapeake Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
 cbm,cbmmcnut,Mataponi Creek,"38° 44' 35.88 N, 76° 42' 26.64 W",38.7433,76.7074,Active,Apr 2003-,md,Chesapeake Bay,"no23f,po4f,chla_n,no3f,no2f,nh4f",
 cbm,cbmmcwq,Mataponi Creek,"38° 44' 35.88 N, 76° 42' 26.64 W",38.7433,76.7074,Active,Apr 2003-,md,Chesapeake Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",
@@ -38,7 +38,7 @@ cbm,cbmrrnut,Railroad,"38° 46' 52.68 N, 76° 42' 49.32 W",38.7813,76.7137,Activ
 cbm,cbmrrwq,Railroad,"38° 46' 52.68 N, 76° 42' 49.32 W",38.7813,76.7137,Active,Apr 2003-,md,Chesapeake Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",R
 cbv,cbvcbnut,Claybank,"37° 20' 47.99 N, 76° 36' 40.55 W",37.346665,76.611263,Active,Jan 2002-,va,Chesapeake Bay,"no23f,po4f,chla_n,no3f,no2f,nh4f",
 cbv,cbvcbwq,Claybank,"37° 20' 47.99 N, 76° 36' 40.55 W",37.346665,76.611263,Active,Jan 2002-,va,Chesapeake Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
-cbv,cbvcinut,Catlett Islands,"37° 17' 60.00 N, 76° 32' 60.00 W",37.30000,76.55000,Active,Jan 2002-,va,Chesapeake Bay,"no23f,po4f,chla_n,no3f,no2f,nh4f",
+cbv,cbvcinut,Catlett Islands,"37° 17' 60.00 N, 76° 32' 60.00 W",37.3,76.55,Active,Jan 2002-,va,Chesapeake Bay,"no23f,po4f,chla_n,no3f,no2f,nh4f",
 cbv,cbvginut,Goodwin Islands,"37° 12' 56.87 N, 76° 23' 33.63 W",37.215796,76.392675,Active,Jan 2002-,va,Chesapeake Bay,"no23f,po4f,chla_n,no3f,no2f,nh4f",
 cbv,cbvgiwq,Goodwin Islands,"37° 12' 56.87 N, 76° 23' 33.63 W",37.215796,76.392675,Active,Oct 1997-,va,Chesapeake Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
 cbv,cbvshnut,Sweethall,"37° 34' 16.97 N, 76° 53' 3.26 W",37.57138,76.88424,Inactive,Jan 2002-Nov 2016,va,Chesapeake Bay,"no23f,po4f,chla_n,no3f,no2f,nh4f",
@@ -48,8 +48,8 @@ cbv,cbvtcnut,Taskinas Creek,"37° 24' 53.95 N, 76° 42' 51.91 W",37.414986,76.71
 cbv,cbvtcwq,Taskinas Creek,"37° 24' 53.95 N, 76° 42' 51.91 W",37.414986,76.71442,Active,Sep 1995-,va,Chesapeake Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",R
 cbv,cbvybnut,York River Bridge,"37° 14' 41.64 N, 76° 30' 18.72 W",37.2449,76.5052,Active,Jan 2002-,va,Chesapeake Bay,"no23f,po4f,chla_n,no3f,no2f,nh4f",
 del,delbbnut,Beaver Branch,"39° 24' 8.64 N, 75° 37' 40.80 W",39.4024,75.628,Active,Feb 2002-,de,Delaware,"po4f,nh4f,no2f,no3f,no23f,chla_n",
-del,delblnut,Blackbird Landing,"39° 23' 19.54 N, 75° 38' 9.60 W",39.38876,75.63600,Active,Jan 2002-,de,Delaware,"po4f,nh4f,no2f,no3f,no23f,chla_n",
-del,delblwq,Blackbird Landing,"39° 23' 19.54 N, 75° 38' 9.60 W",39.38876,75.63600,Active,Aug 1995-,de,Delaware,"temp,spcond,sal,do_pct,do_mgl,depth,level,ph,turb",
+del,delblnut,Blackbird Landing,"39° 23' 19.54 N, 75° 38' 9.60 W",39.38876,75.636,Active,Jan 2002-,de,Delaware,"po4f,nh4f,no2f,no3f,no23f,chla_n",
+del,delblwq,Blackbird Landing,"39° 23' 19.54 N, 75° 38' 9.60 W",39.38876,75.636,Active,Aug 1995-,de,Delaware,"temp,spcond,sal,do_pct,do_mgl,depth,level,ph,turb",
 del,deldsnut,Division Street,"39° 9' 49.32 N, 75° 31' 8.76 W",39.1637,75.5191,Active,Jan 2002-,de,Delaware,"po4f,nh4f,no2f,no3f,no23f,chla_n",
 del,deldswq,Division Street,"39° 9' 49.32 N, 75° 31' 8.76 W",39.1637,75.5191,Active,Jan 2002-,de,Delaware,"temp,spcond,sal,do_pct,do_mgl,depth,level,ph,turb",
 del,delllnut,Lebanon Landing,"39° 6' 51.84 N, 75° 29' 57.12 W",39.1144,75.4992,Active,Jan 2002-,de,Delaware,"po4f,nh4f,no2f,no3f,no23f,chla_n",
@@ -92,10 +92,10 @@ gtm,gtmsswq,San Sebastian,"29° 52' 08 N, 81° 18' 27 W",29.868851,81.307428,Act
 hud,hudfsmet,Field Station,"42° 1' 5.52 N, 73° 55' 1.20 W",42.0182,73.917,Active,Jan 2001-,ny,Hudson River,"atemp,rh,bp,wspd,maxwspd,maxwspdt,wdir,sdwdir,totprcp,totpar,cumprcp",R
 hud,hudscnut,Stony Creek,"42° 2' 46.68 N, 73° 54' 38.88 W",42.0463,73.9108,Active,Feb 2002-,ny,Hudson River,"po4f,nh4f,no3f,chla_n,cloud,precip",
 hud,hudscwq,Stony Creek,"42° 2' 46.68 N, 73° 54' 38.88 W",42.0463,73.9108,Active,Apr 2002-,ny,Hudson River,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",R
-hud,hudsknut,Saw Kill,"42° 1' 1.82 N, 73° 54' 53.86 W",42.0171722,073.9149611,Active,Feb 2002-,ny,Hudson River,"po4f,nh4f,no3f,chla_n,cloud,precip,tide",
+hud,hudsknut,Saw Kill,"42° 1' 1.82 N, 73° 54' 53.86 W",42.0171722,73.9149611,Active,Feb 2002-,ny,Hudson River,"po4f,nh4f,no3f,chla_n,cloud,precip,tide",
 hud,hudskwq,Saw Kill,"42° 1' 1.82 N, 73° 54' 53.86 W",42.0171722,73.9149611,Active,May 1995-,ny,Hudson River,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",
-hud,hudtnnut,Tivoli North Bay,"42° 2' 11.56 N, 73° 55' 31.17 W",42.0365457,73.9253240,Active,Feb 2002-,ny,Hudson River,"po4f,nh4f,no3f,chla_n,cloud,precip,tide",
-hud,hudtnwq,Tivoli North Bay,"42° 2' 11.56 N, 73° 55' 31.17 W",42.0365457,73.9253240,Active,Jul 1996-Dec 1996; Jul 1999-,ny,Hudson River,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",R
+hud,hudtnnut,Tivoli North Bay,"42° 2' 11.56 N, 73° 55' 31.17 W",42.0365457,73.925324,Active,Feb 2002-,ny,Hudson River,"po4f,nh4f,no3f,chla_n,cloud,precip,tide",
+hud,hudtnwq,Tivoli North Bay,"42° 2' 11.56 N, 73° 55' 31.17 W",42.0365457,73.925324,Active,Jul 1996-Dec 1996; Jul 1999-,ny,Hudson River,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",R
 hud,hudtsnut,Tivoli South Bay,"42° 1' 37.34 N, 73° 55' 33.45 W",42.0270378,73.9259569,Active,Feb 2002-,ny,Hudson River,"po4f,nh4f,no3f,chla_n,cloud,precip,tide",
 hud,hudtswq,Tivoli South Bay,"42° 1' 37.34 N, 73° 55' 33.45 W",42.0270378,73.9259569,Active,May 1995-,ny,Hudson River,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",R
 job,job06wq,Station 6,"17° 56'5.95 N, 66° 13' 40.56 W",17.934986,66.227933,Inactive,Dec 1996-Dec 1998,pr,Jobos Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
@@ -111,12 +111,12 @@ job,job20nut,Station 20,"17° 55' 49.14 N, 66° 12' 41.30 W",17.930317,66.211472
 job,job20wq,Station 20,"17° 55' 49.14 N, 66° 12' 41.30 W",17.930317,66.211472,Active,May 2002-,pr,Jobos Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",R
 job,jobjbmet,Jobos Bay Weather,"17° 57' 23.34 N, 66° 13' 22.56 W",17.956483,66.2229333,Active,Jan 2001-,pr,Jobos Bay,"atemp,rh,bp,wspd,maxwspd,maxwspdt,wdir,sdwdir,totprcp,totpar,cumprcp",R
 kac,kacbcwq,Bear Cove,"59° 42' 20.41 N, 151° 3' 33.84 W",59.70567,151.1094,Inactive,Jun 2002-Dec 2003,ak,Kachemak Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
-kac,kacdlwq,Homer Dolphin,"59° 36' 8.34N, 151° 24' 36.00 W",59.60232,151.41000,Inactive,Oct 2002-Dec 2002,ak,Kachemak Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
+kac,kacdlwq,Homer Dolphin,"59° 36' 8.34N, 151° 24' 36.00 W",59.60232,151.41,Inactive,Oct 2002-Dec 2002,ak,Kachemak Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
 kac,kachdnut,Homer Deep,"59° 36' 7.24 N, 151° 24' 31.61 W",59.60201,151.40878,Active,Feb 2002-,ak,Kachemak Bay,"no23f,po4f,chla_n,no3f,no2f,nh4f",
 kac,kachdwq,Homer Dolphin Deep,"59° 36' 7.24 N, 151° 24' 31.61 W",59.60201,151.40878,Active,Jan 2003-,ak,Kachemak Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",R
 kac,kachhnut,Homer Harbor,"59° 36' 12.31 N, 151° 25' 2.14 W",59.60342,151.41726,Active,Feb 2002-,ak,Kachemak Bay,"no23f,po4f,chla_n,no3f,no2f,nh4f",
 kac,kachomet,Homer,"59° 36' 3.35 N, 151° 24' 34.20 W",59.60093,151.4095,Active,Jan 2002-,ak,Kachemak Bay,"atemp,rh,bp,wspd,maxwspd,maxwspdt,wdir,sdwdir,totprcp,totpar,cumprcp,totsorad",R
-kac,kachowq,Homer,"59° 36' 8.34 N, 151° 24' 36.00 W",59.60232,151.41000,Inactive,Jul 2001-Nov 2002,ak,Kachemak Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
+kac,kachowq,Homer,"59° 36' 8.34 N, 151° 24' 36.00 W",59.60232,151.41,Inactive,Jul 2001-Nov 2002,ak,Kachemak Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
 kac,kachsnut,Homer Shallow,"59° 36' 7.24 N, 151° 24' 31.61 W",59.60201,151.40878,Active,Feb 2002-,ak,Kachemak Bay,"no23f,po4f,chla_n,no3f,no2f,nh4f",
 kac,kachswq,Homer Dolphin Surface,"59° 36' 7.24 N, 151° 24' 31.61 W",59.60201,151.40878,Inactive,Feb 2004-Nov 2011,ak,Kachemak Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
 kac,kacpgwq,Port Graham,"59° 22' 13.91 N, 151° 53' 46.03 W",59.37053,151.89612,Inactive,Jun 2002-Sep 2003,ak,Kachemak Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
@@ -135,11 +135,11 @@ jac,jacbawq,Lower Bank,"39° 35' 37.18 N, 74° 33' 5.44 W",39.5937,74.5515,Activ
 jac,jacncmet,Nacote Creek,"39° 32' 6.00 N, 74° 27' 48.96 W",39.535,74.4636,Active,Oct 2002-,nj,Jacques Cousteau,"atemp,rh,bp,wspd,maxwspd,maxwspdt,wdir,sdwdir,totprcp,totpar,cumprcp",R
 jac,jacnenut,Chestnut Neck,"39° 32' 52.37 N, 74° 27' 38.77 W",39.5479,74.4608,Active,Feb 2002-,nj,Jacques Cousteau,"no23f,po4f,chla_n,no3f,no2f,nh4f",
 jac,jacnewq,Chestnut Neck,"39° 32' 52.37 N, 74° 27' 38.77 W",39.5479,74.4608,Active,Aug 1996-,nj,Jacques Cousteau,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",R
-nar,narncnut,Nag Creek,"41° 37' 29.46 N, 71° 19' 27.42 W",41.624850,71.324283,Active,Mar 2002-,ri,Narragansett Bay,"po4f,nh4f,no2f,no3f,no23f,chla_n",
-nar,narncwq,Nag Creek,"41° 37' 29.46 N, 71° 19' 27.42 W",41.624850,71.324283,Active,Mar 2002-,ri,Narragansett Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
+nar,narncnut,Nag Creek,"41° 37' 29.46 N, 71° 19' 27.42 W",41.62485,71.324283,Active,Mar 2002-,ri,Narragansett Bay,"po4f,nh4f,no2f,no3f,no23f,chla_n",
+nar,narncwq,Nag Creek,"41° 37' 29.46 N, 71° 19' 27.42 W",41.62485,71.324283,Active,Mar 2002-,ri,Narragansett Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
 nar,narpcmet,Potters Cove,"41° 38' 13.70 N, 71° 20' 21.79 W",41.637139,71.339386,Active,Jan 2001-,ri,Narragansett Bay,"atemp,rh,bp,wspd,maxwspd,maxwspdt,wdir,sdwdir,totprcp,totpar,cumprcp",R
-nar,narpcnut,Potters Cove,"41° 38' 25.98 N, 71° 20' 27.17 W",41.640550,71.340881,Active,Mar 2002-,ri,Narragansett Bay,"po4f,nh4f,no2f,no3f,no23f,chla_n",
-nar,narpcwq,Potters Cove,"41° 38' 25.98 N, 71° 20' 27.17 W",41.640550,71.340881,Active,Dec 1995-,ri,Narragansett Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
+nar,narpcnut,Potters Cove,"41° 38' 25.98 N, 71° 20' 27.17 W",41.64055,71.340881,Active,Mar 2002-,ri,Narragansett Bay,"po4f,nh4f,no2f,no3f,no23f,chla_n",
+nar,narpcwq,Potters Cove,"41° 38' 25.98 N, 71° 20' 27.17 W",41.64055,71.340881,Active,Dec 1995-,ri,Narragansett Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
 nar,nartbnut,T-Wharf Bottom,"41° 34' 42.10 N, 71° 19' 16.05 W",41.578361,71.321125,Active,Mar 2002-,ri,Narragansett Bay,"po4f,nh4f,no2f,no3f,no23f,chla_n",
 nar,nartbwq,T-Wharf Bottom,"41° 34' 42.10 N, 71° 19' 16.05 W",41.578361,71.321125,Active,Jul 2002-,ri,Narragansett Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",R
 nar,nartsnut,T-Wharf Surface,"41° 34' 42.10 N, 71° 19' 16.05 W",41.578361,71.321125,Active,Mar 2002-,ri,Narragansett Bay,"po4f,nh4f,no2f,no3f,no23f,chla_n",
@@ -172,14 +172,14 @@ owc,owcolwq,Lower Estuary,"41° 22' 54.00 N, 82° 30' 50.00 W",41.381667,82.5138
 owc,owcowmet,Old Woman Creek,"41° 22' 40.01 N, 82° 30' 29.00 W",41.37778,82.508056,Active,May 2001-,oh,Old Woman Creek,"atemp,rh,bp,wspd,maxwspd,maxwspdt,wdir,sdwdir,totprcp,totpar,cumprcp",R
 owc,owcsunut,State Route 2,"41° 22' 1.92 N, 82° 30' 25.92 W",41.3672,82.5072,Inactive,Mar 2002-Aug 2007,oh,Old Woman Creek,"po4f,nh4f,no2f,no3f,no23f,chla_n",
 owc,owcsuwq,State Route 2,"41° 22' 1.92 N, 82° 30' 25.92 W",41.3672,82.5072,Inactive,May 1995-Aug 2007,oh,Old Woman Creek,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
-owc,owcwmnut,State Route 6,"41° 22' 57.00 N, 82° 30' 52.00 W",41.382500,82.514444,Active,Mar 2002-,oh,Old Woman Creek,"po4f,nh4f,no2f,no3f,no23f,chla_n",
-owc,owcwmwq,State Route 6,"41° 22' 57.00 N, 82° 30' 52.00 W",41.382500,82.514444,Active,May 1995-,oh,Old Woman Creek,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",R
+owc,owcwmnut,State Route 6,"41° 22' 57.00 N, 82° 30' 52.00 W",41.3825,82.514444,Active,Mar 2002-,oh,Old Woman Creek,"po4f,nh4f,no2f,no3f,no23f,chla_n",
+owc,owcwmwq,State Route 6,"41° 22' 57.00 N, 82° 30' 52.00 W",41.3825,82.514444,Active,May 1995-,oh,Old Woman Creek,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",R
 pdb,pdbbpnut,Ploeg Channel,"48° 33' 22.76 N, 122° 31' 51.22 W",48.556322,122.530894,Active,Feb 2002-,wa,Padilla Bay,"no23f,po4f,chla_n,no3f,no2f,nh4f",
 pdb,pdbbpwq,Ploeg Channel,"48° 33' 22.76 N, 122° 31' 51.22 W",48.556322,122.530894,Active,Jul 2001-,wa,Padilla Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",R
 pdb,pdbbynut,Bayview Channel,"48° 29' 46.10 N, 122° 30' 7.61 W",48.496139,122.502114,Active,Feb 2002-,wa,Padilla Bay,"no23f,po4f,chla_n,no3f,no2f,nh4f",
 pdb,pdbbywq,Bayview Channel,"48° 29' 46.10 N, 122° 30' 7.61 W",48.496139,122.502114,Active,Sep 1995-,wa,Padilla Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",R
-pdb,pdbgsnut,Gong Surface,"48° 33' 27.00 N, 122° 34' 21.00 W",48.55750,122.57250,Active,Apr 2003-,wa,Padilla Bay,"no23f,po4f,chla_n,no3f,no2f,nh4f",
-pdb,pdbgswq,Gong Surface,"48° 33' 27.00 N, 122° 34' 21.00 W",48.55750,122.57250,Active,Mar 2003-,wa,Padilla Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",
+pdb,pdbgsnut,Gong Surface,"48° 33' 27.00 N, 122° 34' 21.00 W",48.5575,122.5725,Active,Apr 2003-,wa,Padilla Bay,"no23f,po4f,chla_n,no3f,no2f,nh4f",
+pdb,pdbgswq,Gong Surface,"48° 33' 27.00 N, 122° 34' 21.00 W",48.5575,122.5725,Active,Mar 2003-,wa,Padilla Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",
 pdb,pdbjlnut,Joe Leary Slough,"48° 31' 5.75 N, 122° 28' 27.08 W",48.518264,122.474189,Inactive,Feb 2002-July 2009,wa,Padilla Bay,"no23f,po4f,chla_n,no3f,no2f,nh4f",
 pdb,pdbjlwq,Joe Leary Slough,"48° 31' 5.75 N, 122° 28' 27.08 W",48.518264,122.474189,Inactive,Jun 1995-July 2009,wa,Padilla Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
 pdb,pdbnnwq,No Name Slough,"48° 28' 10.20 N, 122° 28' 2.64 W",48.4695,122.4674,Inactive,Aug 1996-Dec 1997,wa,Padilla Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
@@ -269,10 +269,10 @@ wqb,wqbnswq,North Basin Surface,"41° 34' 43.68 N, 70° 31' 25.32 W",41.5788,70.
 wqb,wqbslnut,Sage Lot,"41° 33' 15.12 N, 70° 30' 30.20 W",41.5542,70.5084,Active,Jul 2002-,ma,Waquoit Bay,"no23f,po4f,chla_n,no3f,no2f,nh4f",
 wqb,wqbslwq,Sage Lot,"41° 33' 15.12 N, 70° 30' 30.20 W",41.5542,70.5084,Active,May 2002-,ma,Waquoit Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",
 gnd,gndpcwq,Point Aux Chenes Bay,"30° 20' 54.96 N, 88° 25' 6.60 W",30.3486,88.4185,Active,Aug 2005-,ms,Grand Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
-gnd,gndcrmet,Crooked Bayou,"30° 21' 33.12 N, 88° 25' 12.00 W",30.3592,88.4200,Active,Aug 2004-,ms,Grand Bay,"atemp,rh,bp,wspd,maxwspd,maxwspdt,wdir,sdwdir,totprcp,totpar,cumprcp",R
+gnd,gndcrmet,Crooked Bayou,"30° 21' 33.12 N, 88° 25' 12.00 W",30.3592,88.42,Active,Aug 2004-,ms,Grand Bay,"atemp,rh,bp,wspd,maxwspd,maxwspdt,wdir,sdwdir,totprcp,totpar,cumprcp",R
 grb,grbglmet,Greenland,"43° 3' 31.56 N, 70° 49' 49.38 W",43.058768,70.830383,Active,Oct 2005-,nh,Great Bay,"atemp,rh,bp,wspd,maxwspd,maxwspdt,wdir,sdwdir,totprcp,totpar,cumprcp",R
 gnd,gndbhnut,Bayou Heron,"30° 25' 4.08 N, 88° 24' 19.44 W",30.4178,88.4054,Active,Feb 2005 -,ms,Grand Bay,"no23f,po4f,chla_n,no2f,nh4f",
-gnd,gndcrnut,Crooked Bayou,"30° 21' 32.76 N, 88° 25' 12.00 W",30.3591,88.4200,Inactive,Feb 2005 - July 2005,ms,Grand Bay,"no23f,po4f,chla_n,no2f,nh4f",
+gnd,gndcrnut,Crooked Bayou,"30° 21' 32.76 N, 88° 25' 12.00 W",30.3591,88.42,Inactive,Feb 2005 - July 2005,ms,Grand Bay,"no23f,po4f,chla_n,no2f,nh4f",
 gnd,gndpcnut,Point Aux Chenes,"30° 20' 54.96 N, 88° 25' 6.60 W",30.3486,88.4185,Active,Feb 2005 -,ms,Grand Bay,"no23f,po4f,chla_n,nh4f",
 gnd,gndbcnut,Bayou Cumbest,"30° 23' 0.96 N, 88° 26' 11.04 W",30.3836,88.4364,Active,Feb 2005 -,ms,Grand Bay,"no23f,po4f,chla_n,no3f,no2f,nh4f",
 gnd,gndblnut,Bangs Lake,"30° 21' 25.56 N, 88° 27' 46.44 W",30.3571,88.4629,Active,Feb 2005 -,ms,Grand Bay,"no23f,po4f,chla_n,no3f,no2f,nh4f",
@@ -287,23 +287,23 @@ mar,marcemet,Copano East,"28° 7' 56.28 N, 97° 2' 3.84 W",28.1323,97.0344,Activ
 wel,welsmnut,Skinner Mill,"43° 20' 40.96 N, 70° 32' 57.18 W",43.344711,70.549217,Active,Apr 2004-,me,Wells,"no23f,po4f,chla_n,nh4f",
 tjr,tjrbrnut,Boca Rio,"32° 33' 33.70 N, 117° 7' 44.30 W",32.5593611,117.1289722,Active,Dec 2004-,ca,Tijuana River,"no23f,po4f,chla_n,no3f,no2f,nh4f",
 mar,marscwq,Ship Channel,"27° 50' 17.88 N, 97° 3' 0.0 W",27.8383,97.0503,Active,Aug 2007 -,tx,Mission Aransas,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",R
-tjr,tjrsbwq,South Bay,"32° 36' 3.60 N, 117° 6' 57.00 W",32.6010000,117.1158333,Active,Jan 2008-,ca,Tijuana River,"temp,spcond,sal,do_pct,do_mgl,depth,level,ph,turb,chlfluor",
-owc,owcdrwq,Darrow Road,"41° 21' 54.00 N, 82° 30' 17.06 W",41.365000,82.504722,Active,Aug 2007-,oh,Old Woman Creek,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",R
+tjr,tjrsbwq,South Bay,"32° 36' 3.60 N, 117° 6' 57.00 W",32.601,117.1158333,Active,Jan 2008-,ca,Tijuana River,"temp,spcond,sal,do_pct,do_mgl,depth,level,ph,turb,chlfluor",
+owc,owcdrwq,Darrow Road,"41° 21' 54.00 N, 82° 30' 17.06 W",41.365,82.504722,Active,Aug 2007-,oh,Old Woman Creek,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",R
 sfb,sfbfmwq,First Mallard,"38° 11' 41.70 N, 122° 1' 58.02 W",38.1949,122.0328,Active,May 2008-,ca,San Francisco Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",R
 sfb,sfbsmwq,Second Mallard,"38° 11' 02.8 N, 122° 0' 48.9 W",38.1841,122.0136,Active,May 2008-,ca,San Francisco Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",R
 sfb,sfbgcwq,Gallinas Creek,"38° 00' 57.3 N, 122° 30' 30.6 W",38.0159,122.5085,Active,Dec 2005-,ca,San Francisco Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",R
 wkb,wkbshmet,Safe Harbor Met Station,"30° 25' 16.40 N, 87° 49' 42.50 W",30.4212,87.8285,Active,Jan 2008-,al,Weeks Bay,"atemp,rh,bp,wspd,maxwspd,maxwspdt,wdir,sdwdir,totprcp,totpar,cumprcp",R
 tjr,tjrpewq,Pond Eleven,"32° 36' 3.54 N, 117° 06' 58.46 W",32.60098,117.11624,Inactive,Jul 2008 - Sept 2010,ca,Tijuana River,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
 pdb,pdbjewq,Joe Leary Estuary,"48° 31' 8.09 N, 122° 28' 29.74 W",48.518914,122.474928,Active,Jul 2009 -,wa,Padilla Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
-owc,owcdrnut,Darrow Road,"41° 21' 54.00 N, 82° 30' 17.06 W",41.365000,82.504722,Active,Aug 2007 -,oh,Old Woman Creek,"po4f,nh4f,no2f,no3f,no23f,chla_n",
+owc,owcdrnut,Darrow Road,"41° 21' 54.00 N, 82° 30' 17.06 W",41.365,82.504722,Active,Aug 2007 -,oh,Old Woman Creek,"po4f,nh4f,no2f,no3f,no23f,chla_n",
 mar,marabnut,Aransas Bay,"27° 58' 47.28 N, 97° 1' 43.32 W",27.9798,97.0287,Active,Jun 2007 -,tx,Mission Aransas,"po4f,nh4f,no23f,chla_n",
 mar,marcenut,Copano Bay East,"28° 7' 56.28 N, 97° 2' 3.84 W",28.1323,97.0344,Active,Jun 2007 -,tx,Mission Aransas,"po4f,nh4f,no23f,chla_n",
 mar,marcwnut,Copano Bay West,"28° 5' 2.76 N, 97° 12' 3.24 W",28.0841,97.2009,Active,Jun 2007 -,tx,Mission Aransas,"po4f,nh4f,no23f,chla_n",
 mar,marscnut,Ship Channel,"27° 50' 17.88 N, 97° 3' 0.0 W",27.8383,97.0503,Active,Jun 2007 -,tx,Mission Aransas,"po4f,nh4f,no23f,chla_n",
-pdb,pdbgdnut,Gong Deep,"48° 33' 27.00 N, 122° 34' 21.00 W",48.55750,122.57250,Active,Jan 2007 -,wa,Padilla Bay,"no23f,po4f,chla_n,no3f,no2f,nh4f",
+pdb,pdbgdnut,Gong Deep,"48° 33' 27.00 N, 122° 34' 21.00 W",48.5575,122.5725,Active,Jan 2007 -,wa,Padilla Bay,"no23f,po4f,chla_n,no3f,no2f,nh4f",
 del,deltbnut,Taylor's Bridge,"39° 24' 17.6 N, 75° 35' 58.4 W",39.4049,75.5996,Active,Jan 2007-,de,Delaware,"po4f,nh4f,no2f,no3f,no23f,chla_n",
 mar,marmbnut,Mesquite Bay,"28° 8' 18.24 N, 96° 49' 42.60 W",28.1384,96.8285,Active,Jan 2008 -,tx,Mission Aransas,"po4f,nh4f,no23f,chla_n",
-tjr,tjrsbnut,South Bay,"32° 36' 3.60 N, 117° 6' 57.00 W",32.6010000,117.1158333,Active,Jan 2008 -,ca,Tijuana River,"po4f,nh4f,no23f,chla_n",
+tjr,tjrsbnut,South Bay,"32° 36' 3.60 N, 117° 6' 57.00 W",32.601,117.1158333,Active,Jan 2008 -,ca,Tijuana River,"po4f,nh4f,no23f,chla_n",
 tjr,tjrpenut,Pond Eleven,"32° 36' 3.54 N, 117° 6' 58.46 W",32.60098,117.11624,Inactive,Jul 2008-Dec 2011,ca,Tijuana River,"po4f,nh4f,no23f,chla_n",
 sfb,sfbfmnut,First Mallard,"38° 11' 41.70 N, 122° 1' 58.02 W",38.1949,122.0328,Active,May 2008 -,ca,San Francisco Bay,"po4f,nh4f,no2f,no3f,no23f,chla_n",
 sfb,sfbsmnut,Second Mallard,"38° 11' 02.8 N, 122° 0' 48.9 W",38.1841,122.0136,Active,May 2008 -,ca,San Francisco Bay,"po4f,nh4f,no2f,no3f,no23f,chla_n,urea",
@@ -311,7 +311,7 @@ pdb,pdbjenut,Joe Leary Estuary,"48° 31' 8.09 N, 122° 28' 29.74 W",48.518914,12
 sos,sosecwq,Elliot Creek,"43 17 47.40 N, 124 18 39.62 W",43.296501,124.310729,Active,May 2012 -,OR,South Slough,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",R
 kac,kach3wq,Homer Surface 3,"59° 36' 7.38 N, 151° 24' 33.90 W",59.60205,151.40942,Active,Jun 2012 -,AK,Kachemak Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",
 lks,lksolwq,Oliver Bridge,"46° 39' 24.66 N, 92° 12' 5.98 W",46.65685,92.20166,Active,Jul 2012 -,WI,Lake Superior,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
-lks,lkspomet,Pokegama Bay,"46° 40' 20.50 N, 92° 8' 8.21 W",46.672360,92.135614,Active,Aug 2013 -,WI,Lake Superior,"atemp,rh,bp,wspd,maxwspd,maxwspdt,wdir,sdwdir,totprcp,totpar,cumprcp",R
+lks,lkspomet,Pokegama Bay,"46° 40' 20.50 N, 92° 8' 8.21 W",46.67236,92.135614,Active,Aug 2013 -,WI,Lake Superior,"atemp,rh,bp,wspd,maxwspd,maxwspdt,wdir,sdwdir,totprcp,totpar,cumprcp",R
 lks,lksblwq,Blatnik Bridge,"46° 44' 55.14 N, 92° 06' 0.97 W",46.748649,92.10027,Active,Jul 2012 -,WI,Lake Superior,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
 lks,lksbawq,Barker's Island,"46° 43' 18.38 N, 92° 03' 48.67 W",46.721772,92.06352,Active,Jun 2012 -,WI,Lake Superior,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",R
 sfb,sfbccnut,China Camp,"38° 0' 4.49 N, 122° 27' 37.28 W",38.0012,122.4604,Active,Jan 2006 -,CA,San Francisco Bay,,
@@ -320,32 +320,32 @@ rkb,rkbpbnut,Pumpkin Bay,"25° 54' 50.76 N, 81° 32' 25.44 W",25.9141,81.5404,Ac
 lks,lksbanut,Barker's Island,"46° 43' 18.38 N, 92° 03' 48.67 W",46.721772,92.06352,Active,May 2012 -,WI,Lake Superior,,
 lks,lksblnut,Blatnik Bridge,"46° 44' 55.14 N, 92° 06' 0.97 W",46.748649,92.10027,Active,May 2012 -,WI,Lake Superior,,
 lks,lksolnut,Oliver Bridge,"46° 39' 24.66 N, 92° 12' 5.98 W",46.65685,92.20166,Active,May 2012 -,WI,Lake Superior,,
-lks,lkspowq,Pokegama Bay,"46° 40' 20.50 N, 92° 8' 8.21 W",46.672360,92.135614,Active,Oct 2013 -,WI,Lake Superior,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
-lks,lksponut,Pokegama Bay,"46° 40' 20.50 N, 92° 8' 8.21 W",46.672360,92.135614,Active,May 2013 -,WI,Lake Superior,,
+lks,lkspowq,Pokegama Bay,"46° 40' 20.50 N, 92° 8' 8.21 W",46.67236,92.135614,Active,Oct 2013 -,WI,Lake Superior,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
+lks,lksponut,Pokegama Bay,"46° 40' 20.50 N, 92° 8' 8.21 W",46.67236,92.135614,Active,May 2013 -,WI,Lake Superior,,
 tjr,tjrprwq,Pond Eleven Restored,"32° 35' 45.90 N, 117° 07' 5.59 W",32.5960833,117.1181944,Active,Jan 2012 -,CA,Tijuana River,"temp,spcond,sal,do_pct,do_mgl,depth,level,ph,turb,chlfluor",
 tjr,tjrprnut,Pond Eleven Restored,"32° 35' 45.90 N, 117° 07' 5.50 W",32.5960833,117.1181944,Active,Jan 2012 -,CA,Tijuana River,,
-kac,kacapmet,Anchor Point,"59° 46' 12.94 N, 151° 52' 3.22 W",59.770260,151.867560,Active,Jan 2014 -,AK,Kachemak Bay,"atemp,rh,bp,wspd,maxwspd,maxwspdt,wdir,sdwdir,totprcp,totpar,cumprcp",R
-ace,aceeiwq,Edisto Island,"32° 30' 14.40 N, 80° 19' 28.92 W",32.5040,80.32470,Active,Jan 2015-,SC,Ashepoo Combahee Edisto Basin,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
-ace,aceeinut,Edisto Island,"32° 30' 14.40 N, 80° 19' 28.92 W",32.5040,80.3247,Active,Jan 2015-,SC,Ashepoo Combahee Edisto Basin,,
-ace,acegpwq,Grove Plantation,"32° 29' 49.32 N, 80° 24' 46.80 W",32.6637,80.4130,Active,Jan 2015-,SC,Ashepoo Combahee Edisto Basin,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",R
+kac,kacapmet,Anchor Point,"59° 46' 12.94 N, 151° 52' 3.22 W",59.77026,151.86756,Active,Jan 2014 -,AK,Kachemak Bay,"atemp,rh,bp,wspd,maxwspd,maxwspdt,wdir,sdwdir,totprcp,totpar,cumprcp",R
+ace,aceeiwq,Edisto Island,"32° 30' 14.40 N, 80° 19' 28.92 W",32.504,80.324700000000007,Active,Jan 2015-,SC,Ashepoo Combahee Edisto Basin,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
+ace,aceeinut,Edisto Island,"32° 30' 14.40 N, 80° 19' 28.92 W",32.504,80.324700000000007,Active,Jan 2015-,SC,Ashepoo Combahee Edisto Basin,,
+ace,acegpwq,Grove Plantation,"32° 29' 49.32 N, 80° 24' 46.80 W",32.6637,80.413,Active,Jan 2015-,SC,Ashepoo Combahee Edisto Basin,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",R
 ace,acejiwq,Jehossee Island,"32° 29' 49.32 N, 80° 24' 46.80 W",32.6209,80.3965,Active,Jan 2015-,SC,Ashepoo Combahee Edisto Basin,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
 mar,marscmet,Ship Channel,"27° 50' 17.20 N, 97° 3' 0.79 W",27.83811,97.05022,Active,Sep 2015-,TX,Mission Aransas,"atemp,rh,bp,wspd,maxwspd,maxwspdt,wdir,sdwdir,totprcp,totpar,cumprcp",R
-niw,niwwswq,Winyah Bay Surface,"33° 18' 33.93 N, 79° 17' 19.52 W",33.3094250,79.2887556,Active,Jun 2016-,SC,North Inlet-Winyah Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",R
-niw,niwwbwq,Winyah Bay Bottom,"33° 18' 33.93 N, 79° 17' 19.52 W",33.3094250,79.2887556,Active,Jun 2016-,SC,North Inlet-Winyah Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",R
+niw,niwwswq,Winyah Bay Surface,"33° 18' 33.93 N, 79° 17' 19.52 W",33.309425,79.2887556,Active,Jun 2016-,SC,North Inlet-Winyah Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",R
+niw,niwwbwq,Winyah Bay Bottom,"33° 18' 33.93 N, 79° 17' 19.52 W",33.309425,79.2887556,Active,Jun 2016-,SC,North Inlet-Winyah Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",R
 gnd,gndhsnut,Bayou Heron Surface,"30° 25' 4.08 N, 88° 24' 19.44 W",30.4178,88.4054,Active,Feb 2005-,MS,Grand Bay,,
 sos,sostcmet,Tom's Creek,"43° 16' 44.86 N, 124° 19' 06.01 W",43.279129,124.318367,Active,Oct 2016-,OR,South Slough,"atemp,rh,bp,wspd,maxwspd,maxwspdt,wdir,sdwdir,totprcp,totpar,cumprcp",R
 rkb,rkbpbwq,Pumpkin Bay,"25° 54' 50.76 N, 81° 32' 25.44 W",25.9141,81.5404,Active,Jul 2016-,FL,Rookery Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
-apa,apapcwq,Pilots Cove,"29° 36' 3.60 N, 85° 01' 39.72 W",29.6010,85.0277,Active,Jan 2017-,FL,Apalachicola Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
+apa,apapcwq,Pilots Cove,"29° 36' 3.60 N, 85° 01' 39.72 W",29.601,85.0277,Active,Jan 2017-,FL,Apalachicola Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
 apa,apalmwq,Little St Marks River,"29° 45' 20.48 N, 85° 00' 12.69 W",29.755689,85.003525,Active,Jan 2017-,FL,Apalachicola Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
-cbv,cbvspwq,Sweethall Pier,"37° 34' 17.03 N, 76° 53' 02.36 W",37.571398,76.883990,Active,Nov 2016-,VA,Chesapeake Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",R
-cbv,cbvspnut,Sweethall Pier,"37° 34' 17.03 N, 76° 53' 02.36 W",37.571398,76.883990,Active,Nov 2016-,VA,Chesapeake Bay,,
+cbv,cbvspwq,Sweethall Pier,"37° 34' 17.03 N, 76° 53' 02.36 W",37.571398,76.88399,Active,Nov 2016-,VA,Chesapeake Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",R
+cbv,cbvspnut,Sweethall Pier,"37° 34' 17.03 N, 76° 53' 02.36 W",37.571398,76.88399,Active,Nov 2016-,VA,Chesapeake Bay,,
 hud,hudnpwq,Norrie Point,"41° 49' 54 N, 73° 56' 32 W",41.83167,73.94194,Active,Jan 2018-,NY,Hudson River,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",R
 hud,hudnpmet,Norrie Point,"41° 49' 53 N, 73° 56' 32 W",41.83139,73.94222,Active,Jan 2018-,NY,Hudson River,"atemp,rh,bp,wspd,maxwspd,maxwspdt,wdir,sdwdir,totprcp,totpar,cumprcp",R
-pdb,pdbgdwq,Gong Deep,"48° 33' 27.00 N, 122° 34' 21.00 W",48.55750,122.57250,Active,Oct 2016-,WA,Padilla Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
+pdb,pdbgdwq,Gong Deep,"48° 33' 27.00 N, 122° 34' 21.00 W",48.5575,122.5725,Active,Oct 2016-,WA,Padilla Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb",
 hee,heew2wq,Wai 2,"21° 26' 17.92 N, 157° 48' 39.35 W",21.43831,157.81093,Active,Oct 2019-,HI,Heeia,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",
 hee,heekbmet,Kakoo Bridge,"21° 26' 05.97 N, 157° 48' 41.09 W",21.434992,157.811413,Active,Oct 2019-,HI,Heeia,,
 hee,heew2nut,Wai 2,"21° 26' 17.92 N, 157° 48' 39.35 W",21.43831,157.81093,Active,Jan 2019-,HI,Heeia,,
-hud,hudbmwq,Bear Mountain,"41° 18' 51.62 N, 73° 59' 6.81 W",41.3143389,73.9852250,Active,Jan 2020-,NY,Hudson River,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",R
+hud,hudbmwq,Bear Mountain,"41° 18' 51.62 N, 73° 59' 6.81 W",41.3143389,73.985225,Active,Jan 2020-,NY,Hudson River,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",R
 cbm,cbmmbwq,Monie Bay,"38° 12' 30.78 N, 75° 48' 16.50 W",38.20855,75.804583,Active,Jan 2020-,MD,Chesapeake Bay,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",
 hee,heer9wq,Reef 9,"21° 26' 46.61 N, 157° 48' 06.59 W",21.44628,157.80183,Active,Feb 2020-,HI,Heeia,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",
 ace,acefjwq,Fort Johnson,"32° 45' 11.98 N, 79° 53' 56.37 W",32.753327,79.898991,Active,Jul 2020-,SC,Ashepoo Combahee Edisto Basin,"temp,spcond,sal,do_pct,do_mgl,depth,ph,turb,chlfluor",R
