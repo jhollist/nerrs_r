@@ -143,7 +143,7 @@ ne_nerrs_wq
 
 ### Other ways to read in data
 
-There are many ways to read in data with R.  If you have questions about this, please let Jeff know.  He's happy to chat more about it.  Before we move on though, I will show an example of one other way we can do this.   Since Excel spreadsheets are so ubiquitous we need a reliable way to read in data stored in an excel spreadsheet.  There are a variety of packages that provide this capability, but by far the best (IMHO) is `readxl` which is part of the Tidyverse.  You can download this file from [ne_nerrs_wq_2020.xlsx]() and once it is downloaded, this is how we would read it in:
+There are many ways to read in data with R.  If you have questions about this, please let Jeff know.  He's happy to chat more about it.  Before we move on though, I will show an example of one other way we can do this.   Since Excel spreadsheets are so ubiquitous we need a reliable way to read in data stored in an excel spreadsheet.  There are a variety of packages that provide this capability, but by far the best (IMHO) is `readxl` which is part of the Tidyverse.  You can download this file from [ne_nerrs_wq_2020.xlsx](https://github.com/jhollist/nerrs_r/blob/master/lessons/ne_nerrs_wq_2020.xlsx?raw=true) and once it is downloaded, this is how we would read it in:
 
 ```{r readxl, eval=FALSE}
 # You'll very likely need to install it first!!!  How'd we do that?

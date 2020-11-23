@@ -166,26 +166,27 @@ ne_nerrs_wq
 
 ```
 ## # A tibble: 219,190 x 26
-##    datetimestamp        temp f_temp spcond f_spcond   sal f_sal do_pct f_do_pct do_mgl f_do_mgl depth f_depth    ph
-##    <dttm>              <dbl>  <dbl>  <dbl>    <dbl> <dbl> <dbl>  <dbl>    <dbl>  <dbl>    <dbl> <dbl>   <dbl> <dbl>
-##  1 2020-05-01 05:00:00   7.5      0   0.18        0   0.1     0   101.        0   12.1        0    NA      -1   6.8
-##  2 2020-05-01 05:15:00   7.4      0   0.18        0   0.1     0   101.        0   12.1        0    NA      -1   6.8
-##  3 2020-05-01 05:30:00   7.4      0   0.18        0   0.1     0   101.        0   12.1        0    NA      -1   6.8
-##  4 2020-05-01 05:45:00   7.4      0   0.18        0   0.1     0   101.        0   12.1        0    NA      -1   6.8
-##  5 2020-05-01 06:00:00   7.4      0   0.18        0   0.1     0   100.        0   12.1        0    NA      -1   6.8
-##  6 2020-05-01 06:15:00   7.4      0   0.18        0   0.1     0   100.        0   12.1        0    NA      -1   6.8
-##  7 2020-05-01 06:30:00   7.4      0   0.18        0   0.1     0   100.        0   12.1        0    NA      -1   6.8
-##  8 2020-05-01 06:45:00   7.4      0   0.18        0   0.1     0   100.        0   12.1        0    NA      -1   6.8
-##  9 2020-05-01 07:00:00   7.4      0   0.18        0   0.1     0   100.        0   12.1        0    NA      -1   6.8
-## 10 2020-05-01 07:15:00   7.4      0   0.18        0   0.1     0   100.        0   12.1        0    NA      -1   6.8
-## # ... with 219,180 more rows, and 12 more variables: f_ph <dbl>, turb <dbl>, f_turb <dbl>, chlfluor <dbl>,
-## #   f_chlfluor <dbl>, level <dbl>, f_level <dbl>, cdepth <dbl>, clevel <dbl>, f_cdepth <dbl>, f_clevel <dbl>,
-## #   site <chr>
+##    datetimestamp        temp f_temp spcond f_spcond   sal f_sal do_pct f_do_pct do_mgl
+##    <dttm>              <dbl>  <dbl>  <dbl>    <dbl> <dbl> <dbl>  <dbl>    <dbl>  <dbl>
+##  1 2020-05-01 05:00:00   7.5      0   0.18        0   0.1     0   101.        0   12.1
+##  2 2020-05-01 05:15:00   7.4      0   0.18        0   0.1     0   101.        0   12.1
+##  3 2020-05-01 05:30:00   7.4      0   0.18        0   0.1     0   101.        0   12.1
+##  4 2020-05-01 05:45:00   7.4      0   0.18        0   0.1     0   101.        0   12.1
+##  5 2020-05-01 06:00:00   7.4      0   0.18        0   0.1     0   100.        0   12.1
+##  6 2020-05-01 06:15:00   7.4      0   0.18        0   0.1     0   100.        0   12.1
+##  7 2020-05-01 06:30:00   7.4      0   0.18        0   0.1     0   100.        0   12.1
+##  8 2020-05-01 06:45:00   7.4      0   0.18        0   0.1     0   100.        0   12.1
+##  9 2020-05-01 07:00:00   7.4      0   0.18        0   0.1     0   100.        0   12.1
+## 10 2020-05-01 07:15:00   7.4      0   0.18        0   0.1     0   100.        0   12.1
+## # ... with 219,180 more rows, and 16 more variables: f_do_mgl <dbl>, depth <dbl>,
+## #   f_depth <dbl>, ph <dbl>, f_ph <dbl>, turb <dbl>, f_turb <dbl>, chlfluor <dbl>,
+## #   f_chlfluor <dbl>, level <dbl>, f_level <dbl>, cdepth <dbl>, clevel <dbl>, f_cdepth <dbl>,
+## #   f_clevel <dbl>, site <chr>
 ```
 
 ### Other ways to read in data
 
-There are many ways to read in data with R.  If you have questions about this, please let Jeff know.  He's happy to chat more about it.  Before we move on though, I will show an example of one other way we can do this.   Since Excel spreadsheets are so ubiquitous we need a reliable way to read in data stored in an excel spreadsheet.  There are a variety of packages that provide this capability, but by far the best (IMHO) is `readxl` which is part of the Tidyverse.  You can download this file from [ne_nerrs_wq_2020.xlsx]() and once it is downloaded, this is how we would read it in:
+There are many ways to read in data with R.  If you have questions about this, please let Jeff know.  He's happy to chat more about it.  Before we move on though, I will show an example of one other way we can do this.   Since Excel spreadsheets are so ubiquitous we need a reliable way to read in data stored in an excel spreadsheet.  There are a variety of packages that provide this capability, but by far the best (IMHO) is `readxl` which is part of the Tidyverse.  You can download this file from [ne_nerrs_wq_2020.xlsx](https://github.com/jhollist/nerrs_r/blob/master/lessons/ne_nerrs_wq_2020.xlsx?raw=true) and once it is downloaded, this is how we would read it in:
 
 
 ```r
