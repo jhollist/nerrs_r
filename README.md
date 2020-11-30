@@ -25,7 +25,7 @@ We will meet every Monday from 2pm to 3pm via Teams ([link to Teams meeting](htt
 |Class 4 (2020-11-16):      |[R Basics: Getting Help](lessons/02_r_basics.md#getting-help)| [Video](https://youtu.be/NGe85RBug8s)|
 |                           |[Tidy Data: Part 1](lessons/03_tidy_data_in_r_1.md)||
 |Class 5 (2020-11-23):      |[Finish Up Tidy Data: Part 1](lessons/03_tidy_data_in_r_1.md)||
-|Class 6 (2020-11-30):      |[Homework 2.1 - In Class](lessons/03_tidy_data_in_r_1.md#homework-31)||
+|Class 6 (2020-11-30):      |[Homework 3.1 - In Class](lessons/03_tidy_data_in_r_1.md#homework-31)||
 |                           |[Tidy Data: Part 2](lessons/03_tidy_data_in_r_2.md)||
 |Class 7 (2020-12-07):      |[Data Viz: Part 1](lessons/04_data_viz_with_ggplot2.md)||
 |Class 8 (2020-12-14):      |[Data Viz: Part 2](lessons/04_data_viz_with_ggplot2.md)||
