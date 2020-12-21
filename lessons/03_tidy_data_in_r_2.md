@@ -194,19 +194,19 @@ penguin_bill_ratio_species <- penguins %>%
   select(species = species, bill_depth = bill_depth_mm, bill_length = bill_length_mm) %>%
   mutate(bill_ratio = bill_depth/bill_length) %>%
   group_by(species) %>%
-  summarize(mean_petal_ratio = mean(bill_ratio, na.rm = TRUE),
-            sd_petal_ratio = sd(bill_ratio, na.rm = TRUE),
-            median_petal_ratio = median(bill_ratio, na.rm = TRUE))
+  summarize(mean_bill_ratio = mean(bill_ratio, na.rm = TRUE),
+            sd_bill_ratio = sd(bill_ratio, na.rm = TRUE),
+            median_bill_ratio = median(bill_ratio, na.rm = TRUE))
 penguin_bill_ratio_species
 ```
 
 ```
 ## # A tibble: 3 x 4
-##   species   mean_petal_ratio sd_petal_ratio median_petal_ratio
-##   <fct>                <dbl>          <dbl>              <dbl>
-## 1 Adelie               0.474         0.0357              0.468
-## 2 Chinstrap            0.378         0.0202              0.376
-## 3 Gentoo               0.316         0.0174              0.316
+##   species   mean_bill_ratio sd_bill_ratio median_bill_ratio
+##   <fct>               <dbl>         <dbl>             <dbl>
+## 1 Adelie              0.474        0.0357             0.468
+## 2 Chinstrap           0.378        0.0202             0.376
+## 3 Gentoo              0.316        0.0174             0.316
 ```
 
 
