@@ -4,10 +4,10 @@ output: github_document
 ---
 
 # Introduction
-This lesson will cover calculating basic statistics with R, conducting statistical tests, and building simple linear models.  We will use the 2007 NLA data for the examples.
+This lesson will cover calculating basic statistics with R, conducting statistical tests, and building simple linear models.  We will use the NE NERRS data for the examples.
 
 ## Get Data
-First step in any project will be getting the data read into R.  For this lesson we are using the 2007 National Lakes Assessment data, which ,luckily, we already have locally.  From our `nla_analysis.R` script we can re-run a bunch of that code.  I've copied over the important bits here.  Alternatively, you can just open up your `nla_analysis.R` and run everything in there.  
+First step in any project will be getting the data read into R.  For this lesson we are using the NE NERRS data that we have been using all along, which ,luckily, we already have locally.  From our `nerrs_analysis.R` script we can re-run a bunch of that code.  I've copied over the important bits here.  Alternatively, you can just open up your `nerrs_analysis.R` and run everything in there.  
 
 
 ```r
@@ -15,67 +15,41 @@ library(dplyr)
 library(readr)
 library(tidyr)
 
-nla_wq_all <- read_csv("https://www.epa.gov/sites/production/files/2014-10/nla2007_chemical_conditionestimates_20091123.csv")
-
-nla_wq <- nla_wq_all %>%
-  rename_all(tolower) %>% #making all names lower case beucase they are a mess!
-  mutate_if(is.character, tolower) %>%
-  filter(site_type == "prob_lake",
-         visit_no == 1) %>%
-  select(site_id, st, epa_reg, wsa_eco9, ptl, ntl, turb, chla, doc)
+ne_nerrs_wq <- read_csv("ne_nerrs_wq_2020.csv", guess_max = 600000) %>%
+  select(site, datetimestamp:f_do_pct, ph:f_turb) %>%
+  mutate(f_temp = case_when(.data$f_temp != 0 ~
+                              NA_real_,
+                            TRUE ~ .data$f_temp),
+         f_spcond = case_when(.data$f_spcond != 0 ~
+                                NA_real_,
+                              TRUE ~ .data$f_spcond),
+         f_sal = case_when(.data$f_sal != 0 ~
+                             NA_real_,
+                           TRUE ~ .data$f_sal),
+         f_do_pct = case_when(.data$f_do_pct != 0 ~
+                                NA_real_,
+                              TRUE ~ .data$f_do_pct),
+         f_ph = case_when(.data$f_ph != 0 ~
+                            NA_real_,
+                          TRUE ~ .data$f_ph),
+         f_turb = case_when(.data$f_turb != 0 ~
+                              NA_real_,
+                            TRUE ~ .data$f_turb)) %>%
+  filter(complete.cases(.)) %>%
+  select(site, datetimestamp, temp, sal, do_pct, ph, turb) %>%
+  mutate(reserve = str_sub(site, 1, 3),
+         datetime = ymd_hms(datetimestamp),
+         year = year(datetime),
+         month = month(datetime),
+         day = day(datetime),
+         date = ymd(paste(year, month, day, "-"))) %>%
+  select(reserve, date, temp, sal, do_pct, ph, turb) %>%
+  pivot_longer(cols = temp:turb, names_to = "param",  values_to = "measurement") %>%
+  group_by(reserve, date, param) %>%
+  summarize(measurement = mean(measurement, na.rm = TRUE)) %>%
+  ungroup() %>%
+  pivot_wider(id_cols = reserve:date, names_from = param, values_from = measurement)
 ```
-
-
-Next, lets get a bit more info from the NLA Sites and join that to our data.
-
-
-```r
-nla_sites <- read_csv("https://www.epa.gov/sites/production/files/2014-01/nla2007_sampledlakeinformation_20091113.csv")
-```
-
-```
-## 
-## -- Column specification -----------------------------------------------------------------------------------------
-## cols(
-##   .default = col_character(),
-##   VISIT_NO = col_double(),
-##   LON_DD = col_double(),
-##   LAT_DD = col_double(),
-##   ALBERS_X = col_double(),
-##   ALBERS_Y = col_double(),
-##   FLD_LON_DD = col_double(),
-##   FLD_LAT_DD = col_double(),
-##   MDCATY = col_double(),
-##   WGT = col_double(),
-##   WGT_NLA = col_double(),
-##   ECO_LEV_3 = col_double(),
-##   AREA_HA = col_double(),
-##   LAKEAREA = col_double(),
-##   LAKEPERIM = col_double(),
-##   SLD = col_double(),
-##   DEPTH_X = col_double(),
-##   DEPTHMAX = col_double(),
-##   ELEV_PT = col_double(),
-##   COM_ID = col_double(),
-##   VISIT_ID = col_double()
-##   # ... with 1 more columns
-## )
-## [36mi[39m Use `spec()` for the full column specifications.
-```
-
-```r
-nla_sites <- nla_sites %>%
-  filter(VISIT_NO == 1) %>%
-  select(SITE_ID, STATE_NAME, CNTYNAME, LAKE_ORIGIN, RT_NLA) %>%
-  rename_all(tolower) %>% #making all names lower case because they are a mess!
-  mutate_if(is.character, tolower)
-
-nla <- left_join(nla_sites, nla_wq, by = "site_id") %>%
-  filter(!is.na(ntl),
-         !is.na(chla),
-         !is.na(ptl))
-```
-
 
 
 So now we have our dataset ready for analysis.
@@ -90,31 +64,24 @@ We can get a summary of the full data frame:
 
 ```r
 #Get a summary of the data frame
-summary(nla)
+summary(ne_nerrs_wq)
 ```
 
 ```
-##    site_id           state_name          cntyname         lake_origin           rt_nla         
-##  Length:1028        Length:1028        Length:1028        Length:1028        Length:1028       
-##  Class :character   Class :character   Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-##                                                                                                
-##                                                                                                
-##                                                                                                
-##       st              epa_reg            wsa_eco9              ptl              ntl               turb        
-##  Length:1028        Length:1028        Length:1028        Min.   :   1.0   Min.   :    5.0   Min.   :  0.237  
-##  Class :character   Class :character   Class :character   1st Qu.:  11.0   1st Qu.:  325.5   1st Qu.:  1.520  
-##  Mode  :character   Mode  :character   Mode  :character   Median :  29.0   Median :  586.5   Median :  3.815  
-##                                                           Mean   : 110.5   Mean   : 1179.2   Mean   : 13.620  
-##                                                           3rd Qu.:  94.5   3rd Qu.: 1210.8   3rd Qu.: 11.200  
-##                                                           Max.   :4679.0   Max.   :26100.0   Max.   :574.000  
-##       chla             doc         
-##  Min.   :  0.07   Min.   :  0.340  
-##  1st Qu.:  2.98   1st Qu.:  3.380  
-##  Median :  7.79   Median :  5.575  
-##  Mean   : 29.63   Mean   :  8.863  
-##  3rd Qu.: 25.96   3rd Qu.:  8.925  
-##  Max.   :936.00   Max.   :290.570
+##    reserve               date                do_pct             ph             sal              temp       
+##  Length:659         Min.   :2020-05-01   Min.   : 52.84   Min.   :6.651   Min.   : 8.034   Min.   : 7.487  
+##  Class :character   1st Qu.:2020-06-12   1st Qu.: 84.26   1st Qu.:7.606   1st Qu.:23.552   1st Qu.:16.798  
+##  Mode  :character   Median :2020-07-23   Median : 89.17   Median :7.743   Median :28.878   Median :19.822  
+##                     Mean   :2020-07-23   Mean   : 90.01   Mean   :7.693   Mean   :26.146   Mean   :19.529  
+##                     3rd Qu.:2020-09-02   3rd Qu.: 95.65   3rd Qu.:7.838   3rd Qu.:30.169   3rd Qu.:22.787  
+##                     Max.   :2020-10-15   Max.   :124.51   Max.   :8.093   Max.   :32.019   Max.   :27.744  
+##       turb        
+##  Min.   : 0.9583  
+##  1st Qu.: 2.4941  
+##  Median : 3.7361  
+##  Mean   : 5.5278  
+##  3rd Qu.: 6.7969  
+##  Max.   :55.0260
 ```
 
 Or, we can pick and choose what stats we want.  For instance:
@@ -122,59 +89,59 @@ Or, we can pick and choose what stats we want.  For instance:
 
 ```r
 #Stats for Total Nitrogen
-mean(nla$ntl)
+mean(ne_nerrs_wq$turb)
 ```
 
 ```
-## [1] 1179.23
-```
-
-```r
-median(nla$ntl)
-```
-
-```
-## [1] 586.5
+## [1] 5.527813
 ```
 
 ```r
-min(nla$ntl)
+median(ne_nerrs_wq$turb)
 ```
 
 ```
-## [1] 5
-```
-
-```r
-max(nla$ntl)
-```
-
-```
-## [1] 26100
+## [1] 3.736111
 ```
 
 ```r
-sd(nla$ntl)
+min(ne_nerrs_wq$turb)
 ```
 
 ```
-## [1] 2086.885
-```
-
-```r
-IQR(nla$ntl)
-```
-
-```
-## [1] 885.25
+## [1] 0.9583333
 ```
 
 ```r
-range(nla$ntl)
+max(ne_nerrs_wq$turb)
 ```
 
 ```
-## [1]     5 26100
+## [1] 55.02604
+```
+
+```r
+sd(ne_nerrs_wq$turb)
+```
+
+```
+## [1] 5.448075
+```
+
+```r
+IQR(ne_nerrs_wq$turb)
+```
+
+```
+## [1] 4.302753
+```
+
+```r
+range(ne_nerrs_wq$turb)
+```
+
+```
+## [1]  0.9583333 55.0260417
 ```
 
 ### Some quick useful viz
@@ -186,21 +153,21 @@ We can look at histograms and density:
 
 ```r
 #A single histogram using base
-hist(nla$ntl)
+hist(ne_nerrs_wq$turb)
 ```
 
 ![plot of chunk histogram_density](figure/histogram_density-1.png)
 
 ```r
 #Log transform it
-hist(log1p(nla$ntl)) #log1p adds one to deal with zeros
+hist(log1p(ne_nerrs_wq$turb)) #log1p adds one to deal with zeros
 ```
 
 ![plot of chunk histogram_density](figure/histogram_density-2.png)
 
 ```r
 #Density plot
-plot(density(log1p(nla$ntl)))
+plot(density(log1p(ne_nerrs_wq$turb)))
 ```
 
 ![plot of chunk histogram_density](figure/histogram_density-3.png)
@@ -211,20 +178,20 @@ And boxplots:
 
 ```r
 #Simple boxplots
-boxplot(nla$chla)
+boxplot(ne_nerrs_wq$turb)
 ```
 
 ![plot of chunk boxplots](figure/boxplots-1.png)
 
 ```r
-boxplot(log1p(nla$chla))
+boxplot(log1p(ne_nerrs_wq$turb))
 ```
 
 ![plot of chunk boxplots](figure/boxplots-2.png)
 
 ```r
 #Boxplots per group
-boxplot(log1p(nla$chla)~nla$epa_reg)
+boxplot(log1p(ne_nerrs_wq$turb)~ne_nerrs_wq$reserve)
 ```
 
 ![plot of chunk boxplots](figure/boxplots-3.png)
@@ -234,130 +201,122 @@ And scatterplots:
 
 ```r
 #A single scatterplot
-plot(log1p(nla$ptl),log1p(nla$chla))
+plot(log1p(nla$date),log1p(ne_nerrs_wq$turb))
 ```
 
-![plot of chunk scatterplots](figure/scatterplots-1.png)
+```
+## Error in log1p(nla$date): non-numeric argument to mathematical function
+```
 
 And we can do a matrix of scatterplots from a data frame, but we should be careful as non-numeric columns won't log transform and many columns will make for a very uninformative matrix!  So lets subset our dataframe and plot that.
 
 
 ```r
 # Subset with dplyr::select
-nla_numeric_columns <- nla %>%
-  select(ntl, ptl, chla, turb)
+nerrs_numeric_columns <- ne_nerrs_wq %>%
+  select(do_pct, ph, sal, temp, turb)
 
 #A matrix of scatterplot
-plot(log1p(nla_numeric_columns))
+plot(log1p(nerrs_numeric_columns))
 ```
 
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
+![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1-1.png)
 
 
 ## Some tests: t-test and ANOVA
 There are way more tests than we can show examples for.  For today we will show two very common and straightforward tests.  The t-test and an ANOVA.
 
 ### t-test
-First we will look at the t-test to test and see if `lake_orign` shows a difference in `chla`.  In other words can we expect a difference in clarity due to whether a lake is man-made or natural.  This is a two-tailed test. There are two approaches for this 1) using the formula notation if your dataset is in a "long" format or 2) using two separate vectors if your dataset is in a "wide" format.
+First we will look at the t-test to test and see if there is a difference in `turb` in the first half of the sampling period vs the later half.  This is a two-tailed test. There are two approaches for this 1) using the formula notation if your dataset is in a "long" format or 2) using two separate vectors if your dataset is in a "wide" format.  We will show this with the formula notation.
+
+First, we need to figure out first half and last half (this also gets us to start thinking about time series analyses):
 
 
 ```r
-#Long Format - original format for lake_origin and chla
-t.test(nla$chla ~ nla$lake_origin)
+median_date <- median(ne_nerrs_wq$date)
+ne_nerrs_wq <- ne_nerrs_wq %>%
+  mutate(halves = case_when(date <= median_date ~
+                              "FirstHalf",
+                            date > median_date ~
+                              "LastHalf",
+                            TRUE ~ NA_character_))
+```
+
+
+```r
+#Long Format
+t.test(ne_nerrs_wq$turb ~ ne_nerrs_wq$halves)
 ```
 
 ```
 ## 
 ## 	Welch Two Sample t-test
 ## 
-## data:  nla$chla by nla$lake_origin
-## t = -2.5178, df = 588.31, p-value = 0.01207
+## data:  ne_nerrs_wq$turb by ne_nerrs_wq$halves
+## t = 0.67041, df = 629.06, p-value = 0.5028
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  -21.428307  -2.647756
+##  -0.5490126  1.1181816
 ## sample estimates:
-## mean in group man-made  mean in group natural 
-##               24.48944               36.52747
+## mean in group FirstHalf  mean in group LastHalf 
+##                5.669889                5.385305
 ```
 
-```r
-#Wide Format - need to do some work to get there - tidyr is handy!
-wide_nla <- nla %>%
-  select(site_id, chla, lake_origin) %>%
-  spread(lake_origin, chla)
-names(wide_nla)<-c("site_id","man_made", "natural")
-t.test(wide_nla$man_made, wide_nla$natural)
-```
-
-```
-## 
-## 	Welch Two Sample t-test
-## 
-## data:  wide_nla$man_made and wide_nla$natural
-## t = -2.5178, df = 588.31, p-value = 0.01207
-## alternative hypothesis: true difference in means is not equal to 0
-## 95 percent confidence interval:
-##  -21.428307  -2.647756
-## sample estimates:
-## mean of x mean of y 
-##  24.48944  36.52747
-```
-
-Same results, two different ways to approach.  Take a look at the help (e.g. `?t.test`) for more details on other types of t-tests (e.g. paired, one-tailed, etc.)
+Take a look at the help (e.g. `?t.test`) for more details on other types of t-tests (e.g. paired, one-tailed, etc.)
 
 ### ANOVA
-ANOVA can get involved quickly and I haven't done them since my last stats class, so I'm not the best to talk about these, but the very basics require fitting a model and wrapping that ins `aov` function.  In the [Getting More Help section](#getting-more-help) I provide a link that would be a good first start for you ANOVA junkies.  For todays lesson though, lets look at the simple case of a one-vay analysis of variance and check if reference class results in differences in our chlorophyll
+ANOVA can get involved quickly and I haven't done them since my last stats class, so I'm not the best to talk about these, but the very basics require fitting a model and wrapping that in the `aov` function.  In the [Getting More Help section](#getting-more-help) I provide a link that would be a good first start for you ANOVA junkies.  For today's lesson though, lets look at the simple case of a one-way analysis of variance and check if reserves show a difference in our turbidity.
 
 
 ```r
 # A quick visual of this:
-boxplot(log1p(nla$chla)~nla$rt_nla)
+boxplot(log1p(ne_nerrs_wq$turb)~ne_nerrs_wq$reserve)
 ```
 
 ![plot of chunk simple_anova](figure/simple_anova-1.png)
 
 ```r
 # One way analysis of variance
-nla_anova <- aov(log1p(chla)~rt_nla, data=nla)
-nla_anova #Terms
+nerrs_anova <- aov(log1p(turb)~reserve, data=ne_nerrs_wq)
+nerrs_anova #Terms
 ```
 
 ```
 ## Call:
-##    aov(formula = log1p(chla) ~ rt_nla, data = nla)
+##    aov(formula = log1p(turb) ~ reserve, data = ne_nerrs_wq)
 ## 
 ## Terms:
-##                    rt_nla Residuals
-## Sum of Squares   165.4115 1597.0869
-## Deg. of Freedom         2      1025
+##                  reserve Residuals
+## Sum of Squares  114.7120  123.1076
+## Deg. of Freedom        3       655
 ## 
-## Residual standard error: 1.248252
+## Residual standard error: 0.4335327
 ## Estimated effects may be unbalanced
 ```
 
 ```r
-summary(nla_anova) #The table
+summary(nerrs_anova) #The table
 ```
 
 ```
-##               Df Sum Sq Mean Sq F value Pr(>F)    
-## rt_nla         2  165.4   82.71   53.08 <2e-16 ***
-## Residuals   1025 1597.1    1.56                   
+##              Df Sum Sq Mean Sq F value Pr(>F)    
+## reserve       3  114.7   38.24   203.4 <2e-16 ***
+## Residuals   655  123.1    0.19                   
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
 ```r
-anova(nla_anova) #The table with a bit more
+anova(nerrs_anova) #The table with a bit more
 ```
 
 ```
 ## Analysis of Variance Table
 ## 
-## Response: log1p(chla)
-##             Df  Sum Sq Mean Sq F value    Pr(>F)    
-## rt_nla       2  165.41  82.706   53.08 < 2.2e-16 ***
-## Residuals 1025 1597.09   1.558                      
+## Response: log1p(turb)
+##            Df Sum Sq Mean Sq F value    Pr(>F)    
+## reserve     3 114.71  38.237  203.44 < 2.2e-16 ***
+## Residuals 655 123.11   0.188                      
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
@@ -372,11 +331,11 @@ Let's first take a look at correlations.  These can be done with `cor()`.
 
 ```r
 #For a pair
-cor(log1p(nla$ptl),log1p(nla$ntl))
+cor(log1p(ne_nerrs_wq$ptl),log1p(ne_nerrs_wq$ntl))
 ```
 
 ```
-## [1] 0.8044302
+## Error in log1p(ne_nerrs_wq$ntl): non-numeric argument to mathematical function
 ```
 
 ```r

@@ -1,0 +1,213 @@
+---
+title: "Basic Statistics with R"
+output: github_document
+---
+
+# Introduction
+This lesson will cover calculating basic statistics with R, conducting statistical tests, and building simple linear models.  We will use the NE NERRS data for the examples.
+
+## Get Data
+First step in any project will be getting the data read into R.  For this lesson we are using the NE NERRS data that we have been using all along, which ,luckily, we already have locally.  From our `nerrs_analysis.R` script we can re-run a bunch of that code.  I've copied over the important bits here.  Alternatively, you can just open up your `nerrs_analysis.R` and run everything in there.  
+
+```{r get_nla_data, message=FALSE, warning=FALSE}
+
+library(dplyr)
+library(readr)
+library(tidyr)
+
+ne_nerrs_wq <- read_csv("ne_nerrs_wq_2020.csv", guess_max = 600000) %>%
+  select(site, datetimestamp:f_do_pct, ph:f_turb) %>%
+  mutate(f_temp = case_when(.data$f_temp != 0 ~
+                              NA_real_,
+                            TRUE ~ .data$f_temp),
+         f_spcond = case_when(.data$f_spcond != 0 ~
+                                NA_real_,
+                              TRUE ~ .data$f_spcond),
+         f_sal = case_when(.data$f_sal != 0 ~
+                             NA_real_,
+                           TRUE ~ .data$f_sal),
+         f_do_pct = case_when(.data$f_do_pct != 0 ~
+                                NA_real_,
+                              TRUE ~ .data$f_do_pct),
+         f_ph = case_when(.data$f_ph != 0 ~
+                            NA_real_,
+                          TRUE ~ .data$f_ph),
+         f_turb = case_when(.data$f_turb != 0 ~
+                              NA_real_,
+                            TRUE ~ .data$f_turb)) %>%
+  filter(complete.cases(.)) %>%
+  select(site, datetimestamp, temp, sal, do_pct, ph, turb) %>%
+  mutate(reserve = str_sub(site, 1, 3),
+         datetime = ymd_hms(datetimestamp),
+         year = year(datetime),
+         month = month(datetime),
+         day = day(datetime),
+         date = ymd(paste(year, month, day, "-"))) %>%
+  select(reserve, date, temp, sal, do_pct, ph, turb) %>%
+  pivot_longer(cols = temp:turb, names_to = "param",  values_to = "measurement") %>%
+  group_by(reserve, date, param) %>%
+  summarize(measurement = mean(measurement, na.rm = TRUE)) %>%
+  ungroup() %>%
+  pivot_wider(id_cols = reserve:date, names_from = param, values_from = measurement)
+  
+```
+
+
+So now we have our dataset ready for analysis.
+
+## Analyze Data
+
+### Basic Stats
+First step in analyzing a dataset like this is going to be to dig through some basic statistics as well as some basic plots.  
+
+We can get a summary of the full data frame:
+
+```{r summary, message=FALSE, warning=FALSE}
+#Get a summary of the data frame
+summary(ne_nerrs_wq)
+```
+
+Or, we can pick and choose what stats we want.  For instance:
+
+```{r individual_stats, message=FALSE, warning=FALSE}
+#Stats for Total Nitrogen
+mean(ne_nerrs_wq$turb)
+median(ne_nerrs_wq$turb)
+min(ne_nerrs_wq$turb)
+max(ne_nerrs_wq$turb)
+sd(ne_nerrs_wq$turb)
+IQR(ne_nerrs_wq$turb)
+range(ne_nerrs_wq$turb)
+```
+
+### Some quick useful viz
+
+While visualization isn't the point of this lesson, some things are useful to do at this stage of analysis.  In particular is looking at distributions and some basic scatterplots.
+
+We can look at histograms and density:
+
+```{r histogram_density, message=FALSE, warning=FALSE}
+#A single histogram using base
+hist(ne_nerrs_wq$turb)
+#Log transform it
+hist(log1p(ne_nerrs_wq$turb)) #log1p adds one to deal with zeros
+#Density plot
+plot(density(log1p(ne_nerrs_wq$turb)))
+```
+
+
+And boxplots:
+
+```{r boxplots, message=FALSE, warning=FALSE}
+#Simple boxplots
+boxplot(ne_nerrs_wq$turb)
+boxplot(log1p(ne_nerrs_wq$turb))
+
+#Boxplots per group
+boxplot(log1p(ne_nerrs_wq$turb)~ne_nerrs_wq$reserve)
+```
+
+And scatterplots:
+
+```{r scatterplots, message=FALSE, warning=FALSE}
+#A single scatterplot
+plot(log1p(nla$date),log1p(ne_nerrs_wq$turb))
+```
+
+And we can do a matrix of scatterplots from a data frame, but we should be careful as non-numeric columns won't log transform and many columns will make for a very uninformative matrix!  So lets subset our dataframe and plot that.
+
+```{r}
+# Subset with dplyr::select
+nerrs_numeric_columns <- ne_nerrs_wq %>%
+  select(do_pct, ph, sal, temp, turb)
+
+#A matrix of scatterplot
+plot(log1p(nerrs_numeric_columns))
+```
+
+
+## Some tests: t-test and ANOVA
+There are way more tests than we can show examples for.  For today we will show two very common and straightforward tests.  The t-test and an ANOVA.
+
+### t-test
+First we will look at the t-test to test and see if there is a difference in `turb` in the first half of the sampling period vs the later half.  This is a two-tailed test. There are two approaches for this 1) using the formula notation if your dataset is in a "long" format or 2) using two separate vectors if your dataset is in a "wide" format.  We will show this with the formula notation.
+
+First, we need to figure out first half and last half (this also gets us to start thinking about time series analyses):
+
+```{r}
+median_date <- median(ne_nerrs_wq$date)
+ne_nerrs_wq <- ne_nerrs_wq %>%
+  mutate(halves = case_when(date <= median_date ~
+                              "FirstHalf",
+                            date > median_date ~
+                              "LastHalf",
+                            TRUE ~ NA_character_))
+```
+
+```{r t-test, message=FALSE, warning=FALSE}
+#Long Format
+t.test(ne_nerrs_wq$turb ~ ne_nerrs_wq$halves)
+```
+
+Take a look at the help (e.g. `?t.test`) for more details on other types of t-tests (e.g. paired, one-tailed, etc.)
+
+### ANOVA
+ANOVA can get involved quickly and I haven't done them since my last stats class, so I'm not the best to talk about these, but the very basics require fitting a model and wrapping that in the `aov` function.  In the [Getting More Help section](#getting-more-help) I provide a link that would be a good first start for you ANOVA junkies.  For today's lesson though, lets look at the simple case of a one-way analysis of variance and check if reserves show a difference in our turbidity.
+
+```{r simple_anova, message=FALSE, warning=FALSE}
+# A quick visual of this:
+boxplot(log1p(ne_nerrs_wq$turb)~ne_nerrs_wq$reserve)
+
+# One way analysis of variance
+nerrs_anova <- aov(log1p(turb)~reserve, data=ne_nerrs_wq)
+nerrs_anova #Terms
+summary(nerrs_anova) #The table
+anova(nerrs_anova) #The table with a bit more
+```
+
+
+## Correlations and Linear modeling
+The last bit of basic stats we will cover is going to be linear relationships.
+
+### Correlations
+Let's first take a look at correlations.  These can be done with `cor()`.
+
+```{r cor, message=FALSE, warning=FALSE}
+#For a pair
+cor(log1p(ne_nerrs_wq$ptl),log1p(ne_nerrs_wq$ntl))
+#For a correlation matrix
+cor(log1p(nla_numeric_columns))
+#Spearman Rank Correlations
+cor(log1p(nla_numeric_columns),method = "spearman")
+```
+
+You can also test for differences using:
+
+```{r cor_test, message=FALSE,warning=FALSE}
+cor.test(log1p(nla$ptl),log1p(nla$ntl))
+```
+
+### Linear models
+Basic linear models in R can be built with the `lm()` function.  If you aren't building standard least squares regressin models, (e.g. logistic) or aren't doing linear models then you will need to look elsewhere (e.g `glm()`, or `nls()`).  For today our focus is going to be on simple linear models.  Let's look at our ability to model chlorophyll, given the other variables we have.
+
+```{r}
+# The simplest case
+chla_tp <- lm(log1p(chla) ~ log1p(ptl), data=nla) #Creates the model
+summary(chla_tp) #Basic Summary
+names(chla_tp) #The bits
+chla_tp$coefficients #My preference
+coef(chla_tp) #Same thing, but from a function
+resid(chla_tp) # The residuals
+```
+
+We can also do multiple linear regression.
+
+```{r multiple, warning=FALSE, message=FALSE}
+chla_tp_tn_turb <- lm(log1p(chla) ~ log1p(ptl) + log1p(ntl) + log1p(turb), data = nla)
+summary(chla_tp_tn_turb)
+```
+
+There's a lot more we can do with linear models including dummy variables (character or factors will work), interactions, etc.  That's a bit more than we want to get into.  Again the link below is a good place to start for more info.
+
+## Getting More Help
+One nice site that covers basic stats in R is [Quick R: Basic Statistics](http://www.statmethods.net/stats/index.html).  There are others, but that is a good first stop.

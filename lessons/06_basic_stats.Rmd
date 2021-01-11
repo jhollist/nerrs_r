@@ -15,7 +15,7 @@ library(dplyr)
 library(readr)
 library(tidyr)
 
-nla_wq_all <- read_csv("nla2007_chemical_conditionestimates_20091123.csv")
+nla_wq_all <- read_csv("https://www.epa.gov/sites/production/files/2014-10/nla2007_chemical_conditionestimates_20091123.csv")
 
 nla_wq <- nla_wq_all %>%
   rename_all(tolower) %>% #making all names lower case beucase they are a mess!
