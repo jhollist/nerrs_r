@@ -33,8 +33,8 @@ We will meet every Monday from 2pm to 3pm via Teams ([link to Teams meeting](htt
 |                           |[Data Viz: Part 1](lessons/04_data_viz_with_ggplot2.md)||
 |Class 9 (2020-12-28):      |[Data Viz: Part 2](lessons/04_data_viz_with_ggplot2.md)|[Video](https://youtu.be/frioFdn9apQ)|
 |Class 10 (2021-01-04):     |Final Data Viz|[Video](https://youtu.be/LKkjgmO4DbI)|
-|Class 11 (2021-01-11):     |[Basic Stats, Random Forest, and Time series](lessons/06_basic_stats.md)||
-|Class 12 (2021-01-25):     |Geospatial in R Demo||
+|Class 11 (2021-01-11):     |[Basic Stats, Random Forest](lessons/06_basic_stats.md)|[Video](https://youtu.be/RtAc19en8Sg)|
+|Class 12 (2021-01-25):     |Time series and Geospatial in R Demo||
 
 ## EPA Disclaimer
 The United States Environmental Protection Agency (EPA) GitHub project code is provided on an "as is" basis and the user assumes responsibility for its use. EPA has relinquished control of the information and no longer has responsibility to protect the integrity , confidentiality, or availability of the information. Any reference to specific commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation or favoring by EPA. The EPA seal and logo shall not be used in any manner to imply endorsement of any commercial product or activity by EPA or the United States Government.
